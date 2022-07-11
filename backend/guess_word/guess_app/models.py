@@ -7,6 +7,7 @@ class Link(models.Model):
     author = models.ForeignKey(to=User,
                                on_delete=models.CASCADE,
                                verbose_name='Username')
-    receiver = models.CharField(verbose_name='Receiver')
+    receiver = models.CharField(verbose_name='Receiver',
+                                max_length=110)
 
 

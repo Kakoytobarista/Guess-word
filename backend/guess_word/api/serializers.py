@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from backend.guess_word.guess_app.models import Link
+from guess_app.models import Link
 
 
 class LinkSerializers(serializers.ModelSerializer):
