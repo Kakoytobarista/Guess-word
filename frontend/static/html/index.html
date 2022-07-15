@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+    <header>
+        <h1 class="logo">ASLANRDL</h1>
+    </header>
+<div class="warpper">
+  <input class="radio" id="one" name="group" type="radio" checked>
+  <input class="radio" id="two" name="group" type="radio">
+
+  <div class="tabs">
+    <label class="tab" id="one-tab" for="one">Rules</label>
+    <label class="tab" id="two-tab" for="two">Generate Link</label>
+  </div>
+
+  <div class="panels">
+    <div class="panel" id="one-panel">
+      <div class="panel-title"></div>
+      <p class="rulesText">Guess the WORDLE in six tries.
+          Each guess must be a valid five-letter word. Hit the enter button to submit.
+          After each guess, the color of the tiles will change to show how close your guess was to the word.</p>
+    </div>
+    <div class="panel" id="two-panel">
+      <div class="panel-title">
+          <div id="modal" class="modal">
+              <p class="text">Write word</p>
+              <input class="input-field" type="text" id="lname" name="lname"><br>
+              <input class="custom-btn btn-16" id="generate_link" type="submit">
+              <input class="input-field" id="input" type="text" readonly="false"/>
+              <button class="custom-btn btn-16" id="copy">Copy link</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <div class="Game-cells">
+    </div>
+    <div class="Game-keyboard" aria-hidden="true">
+        <div class="Game-keyboard-row">
+            <div role="button" class="Game-keyboard-button">Q</div>
+            <div role="button" class="Game-keyboard-button">W</div>
+            <div role="button" class="Game-keyboard-button">E</div>
+            <div role="button" class="Game-keyboard-button">R</div>
+            <div role="button" class="Game-keyboard-button">T</div>
+            <div role="button" class="Game-keyboard-button">Y</div>
+            <div role="button" class="Game-keyboard-button">U</div>
+            <div role="button" class="Game-keyboard-button">I</div>
+            <div role="button" class="Game-keyboard-button">O</div>
+            <div role="button" class="Game-keyboard-button ">P</div>
+        </div>
+        <div class="Game-keyboard-row">
+            <div role="button" class="Game-keyboard-button">A</div>
+            <div role="button" class="Game-keyboard-button">S</div>
+            <div role="button" class="Game-keyboard-button">D</div>
+            <div role="button" class="Game-keyboard-button">F</div>
+            <div role="button" class="Game-keyboard-button">G</div>
+            <div role="button" class="Game-keyboard-button">H</div>
+            <div role="button" class="Game-keyboard-button">J</div>
+            <div role="button" class="Game-keyboard-button">K</div>
+            <div role="button" class="Game-keyboard-button">L</div>
+        </div>
+        <div class="Game-keyboard-row">
+            <div role="button" class="Game-keyboard-button Game-keyboard-button-wide Game-keyboard-button-enter">Enter
+            </div>
+            <div role="button" class="Game-keyboard-button">Z</div>
+            <div role="button" class="Game-keyboard-button">X</div>
+            <div role="button" class="Game-keyboard-button">C</div>
+            <div role="button" class="Game-keyboard-button">V</div>
+            <div role="button" class="Game-keyboard-button">B</div>
+            <div role="button" class="Game-keyboard-button">N</div>
+            <div role="button" class="Game-keyboard-button">M</div>
+            <div role="button" class="Game-keyboard-button Game-keyboard-button-wide Game-keyboard-button-backspace">⌫
+            </div>
+        </div>
+    </div>
+    <script type="module" src="../../handlers.js"></script>
+    <script type="module" src="../../main.js"></script>
+    <script type="module" src="../../requests.js"></script>
+    <script type="module" src="../../constants.js"></script>
+
+</body>
+
+</html>

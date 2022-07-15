@@ -1,50 +1,84 @@
+import {createTextElement, getGetParam, copy} from './handlers.js'
+import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
+import {el, input, keyboardButtons} from './constants.js'
+
+
+
+
+const createElementWithLink = async function () {
+  try {
+    let linkText;
+    linkText = await createLink()
+    await createTextElement(linkText)
+
+  } catch (e) {
+    console.error(e)
+  }
+}
+
+
+const getWord = async function (uuid){
+    try {
+      if (!uuid) {
+        await getRandomWord()
+      }
+      else {
+        await getConcreteWord(uuid)
+      }
+    }
+    catch(e) {
+      console.error(e)
+    }
+}
+
+
 const sumbitWord = (cells) => {
   let lettersGuessed = 0;
   if (window.rowFilled) {
     window.rowFilled = false;
     for (let i = 0; i < cells.length; i += 1) {
       cells[i].classList.remove("Game-cells-cell-entered");
-      if (cells[i].innerText.toLowerCase() == window.hardcodedWord[i]) {
+      if (cells[i].innerText.toLowerCase() === window.hardcodedWord[i]) {
         cells[i].classList.add("Game-cells-cell-correct");
         lettersEntered[cells[i].innerText] = "correct";
         lettersGuessed += 1;
       } else if (
-        window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) == -1
+        window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1
       ) {
         cells[i].classList.add("Game-cells-cell-absent");
         if (
-          lettersEntered[cells[i].innerText] != "correct" &&
-          lettersEntered[cells[i].innerText] != "elsewhere"
+          lettersEntered[cells[i].innerText] !== "correct" &&
+          lettersEntered[cells[i].innerText] !== "elsewhere"
         ) {
           lettersEntered[cells[i].innerText] = "absent";
         }
       } else if (
         window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
-        cells[i].innerText != window.hardcodedWord[i]
+        cells[i].innerText !== window.hardcodedWord[i]
       ) {
         cells[i].classList.add("Game-cells-cell-elsewhere");
-        if (lettersEntered[cells[i].innerText] != "correct") {
+        if (lettersEntered[cells[i].innerText] !== "correct") {
           lettersEntered[cells[i].innerText] = "elsewhere";
         }
       }
     }
 
-    if (lettersGuessed == window.hardcodedWord.length) {
+    if (lettersGuessed === window.hardcodedWord.length) {
       console.log("won");
       window.gameEnded = true;
-    } else if (window.currentAttempt == window.attempts) {
+    } else if (window.currentAttempt === window.attempts) {
       console.log("lost");
       window.gameEnded = true;
     } else {
       window.currentAttempt += 1;
       Object.keys(lettersEntered).forEach((letter) => {
-        keyboardButtons = Array.from(
-          document.querySelectorAll(".Game-keyboard-button")
+        let keyboardButtons = Array.from(
+            document.querySelectorAll(".Game-keyboard-button")
         );
 
         keyboardButtons.forEach((keyboardButton) => {
           if (
-            keyboardButton.innerText.toLowerCase() == letter.toLocaleLowerCase()
+            keyboardButton.innerText.toLowerCase() === letter.toLocaleLowerCase()
           ) {
             keyboardButton.classList.add(
               `Game-keyboard-button-${lettersEntered[letter]}`
@@ -54,7 +88,6 @@ const sumbitWord = (cells) => {
       });
     }
   } else {
-    console.log("fill the row");
   }
 };
 
@@ -75,7 +108,7 @@ const keyboardLetterClick = (cells, letterText) => {
     if (!cells[i].innerText) {
       cells[i].innerText = letterText;
       cells[i].classList.add("Game-cells-cell-entered");
-      if (i == cells.length - 1) {
+      if (i === cells.length - 1) {
         window.rowFilled = true;
       }
       break;
@@ -100,14 +133,14 @@ const buttonsHandler = (e) => {
     keyboardLetterClick(cells, e.target.innerText);
   }
 
-  return;
 };
 
-const startGame = () => {
+let startGame;
+(startGame = async () => {
   window.currentAttempt = 1;
   window.attempts = 5;
-  window.hardcodedWord = "fresh";
   window.lettersEntered = {};
+  await getWord(getGetParam())
 
   const Cells = document.querySelector(".Game-cells");
   for (let i = 1; i <= window.attempts; i += 1) {
@@ -122,13 +155,19 @@ const startGame = () => {
     Cells.appendChild(newRow);
   }
 
-  keyboardButtons = Array.from(
-    document.querySelectorAll(".Game-keyboard-button")
-  );
+})();
 
-  keyboardButtons.forEach((button) =>
-    button.addEventListener("click", buttonsHandler)
-  );
-};
 
-startGame();
+// Event listeners
+export const word = el.onclick = function() {
+  return input.value
+}
+
+el.addEventListener("click", createElementWithLink)
+
+keyboardButtons.forEach((button) =>
+  button.addEventListener("click", buttonsHandler)
+);
+
+
+document.getElementById('copy').addEventListener('click', copy)
