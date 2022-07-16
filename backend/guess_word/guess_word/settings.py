@@ -14,7 +14,8 @@ SECRET_KEY = 'django-insecure-t2@ja*oz@u$nw(7b)n*$5a8-m%am+7ll3ngqu95b4qy$&naqeb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['112.74.117.117', 'localhost', '47.244.35.68', '127.0.0.1', 'stdworkflow.com', '0.0.0.0']
+ALLOWED_HOSTS = ['112.74.117.117', 'localhost', '47.244.35.68', '127.0.0.1', 'stdworkflow.com', '0.0.0.0',
+                 '51.250.90.3']
 
 
 # Application definition
@@ -98,10 +99,15 @@ WSGI_APPLICATION = 'guess_word.wsgi.application'
 
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
+
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
