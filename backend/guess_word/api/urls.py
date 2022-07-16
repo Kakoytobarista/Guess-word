@@ -1,11 +1,12 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from api.views import LinkViewSet
+from api.views import WordViewSet
 
 
 router = routers.DefaultRouter()
-router.register('links', LinkViewSet, basename='links')
+router.register('word', WordViewSet, basename='word')
+# router.register('get_random_word', )
 
 
 urlpatterns = (

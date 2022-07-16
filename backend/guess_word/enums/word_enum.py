@@ -1,6 +1,6 @@
 import enum
 
 
-class LinkEnum(enum.Enum):
-    MAIN_URL = "http://127.0.0.1:8000/"
-    LINK_URL = "api/links/"
+class WordEnum(enum.Enum):
+    MAIN_URL = "http://localhost:63342/GuessWord/frontend/index.html"
+    UUID_PARAM = "?uuid="
