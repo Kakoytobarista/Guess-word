@@ -1,4 +1,4 @@
-from corsheaders.defaults import default_headers
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-t2@ja*oz@u$nw(7b)n*$5a8-m%am+7ll3ngqu95b4qy$&naqeb
 DEBUG = True
 
 ALLOWED_HOSTS = ['112.74.117.117', 'localhost', '47.244.35.68', '127.0.0.1', 'stdworkflow.com', '0.0.0.0',
-                 '51.250.90.3']
+                 '51.250.90.3', 'guess-word.onthewifi.com']
 
 
 # Application definition
@@ -27,7 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
     'django_extensions',
     'django_filters',
     'rest_framework',
@@ -38,33 +37,14 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-CORS_ORIGIN_ALLOW_ALL=True
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-    'http://127.0.0.1:8000'
-]
 
 
-CORS_ALLOW_HEADERS = default_headers + (
-    'Access-Control-Allow-Headers',
-    'Access-Control-Allow-Credentials',
-    'Access-Control-Allow-Origin',
-)
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
 
 ROOT_URLCONF = 'guess_word.urls'
 
@@ -106,8 +86,7 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT')
     }
-}
-
+} 
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
