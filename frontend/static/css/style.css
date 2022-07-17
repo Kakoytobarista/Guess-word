@@ -203,7 +203,7 @@ h2 {
 .panels {
   background: #fff;
   box-shadow: 0 2rem 2rem #00000080;
-]]
+  min-height: 200px;
   width: 100%;
   max-width: 500px;
   border-radius: 3px;
