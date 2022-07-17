@@ -21,3 +21,9 @@ export async function copy() {
   copyText.select()
   document.execCommand('copy')
 }
+
+
+export async function is_empty() {
+    const wordInput = await document.getElementById('lname');
+    return !await wordInput.value;
+}

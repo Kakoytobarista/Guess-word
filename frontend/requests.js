@@ -1,7 +1,8 @@
 import {word} from './main.js'
-import {addNewWord} from "./handlers.js";
+import {addNewWord, is_empty} from "./handlers.js";
 
 export const createLink = async function() {
+    if (await is_empty()) {
   const response = await fetch('http://guess-word.onthewifi.com/api/word/', {
         method: 'POST',
         headers: {
@@ -16,6 +17,10 @@ export const createLink = async function() {
   );
   const data = await response.json();
   return data['link']
+}
+    else {
+        window.alert('You need to write a word!')
+    }
 }
 
 
