@@ -20,6 +20,7 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  width: 100vw;
   height: 100vh;
   padding-bottom: 25px;
 }
@@ -202,11 +203,12 @@ h2 {
 .panels {
   background: #fff;
   box-shadow: 0 2rem 2rem #00000080;
+]]
   width: 100%;
   max-width: 500px;
   border-radius: 3px;
   overflow: hidden;
-
+  padding: 20px;
 }
 
 .panel {
