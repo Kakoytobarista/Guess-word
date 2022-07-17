@@ -7,7 +7,7 @@ from django.core.validators import MinValueValidator
 class Word(models.Model):
     word = models.CharField(verbose_name='word',
                             max_length=13,
-                            validators=[MinValueValidator],
+                            validators=[MinValueValidator(2)],
                             unique=False)
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
