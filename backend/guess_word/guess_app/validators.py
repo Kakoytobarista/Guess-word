@@ -9,4 +9,5 @@ def validate_length(value, length=1):
 
 def validate_is_digits_inside(value):
     """Validator for check is digit present inside"""
-    return value.isalpha()
+    if not value.isalpha():
+        raise ValidationError(u'%s you need using only letters' % value)
