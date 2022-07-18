@@ -3,6 +3,8 @@ import os
 from corsheaders.defaults import default_headers
 from pathlib import Path
 from dotenv import load_dotenv
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 load_dotenv()
 
@@ -23,6 +25,23 @@ ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.
 
 
 # Application definition
+
+sentry_sdk.init(
+    dsn="https://0ff7049194b64c81aef276829b258055@o1110399.ingest.sentry.io/6581782",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
