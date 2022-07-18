@@ -4,7 +4,7 @@ from django.db import models
 
 from guess_app.validators import validate_length
 
-from backend.guess_word.guess_app.validators import validate_is_digits_inside
+from guess_app.validators import validate_is_digits_inside
 
 
 class Word(models.Model):
