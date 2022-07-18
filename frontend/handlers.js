@@ -6,7 +6,7 @@ export const getGetParam = function() {
 }
 
 export const addNewWord = async function(word) {
-  window.hardcodedWord = word
+  window.hardcodedWord = word.toLowerCase()
 }
 
 export const createTextElement = async function(linkText) {
