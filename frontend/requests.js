@@ -3,7 +3,7 @@ import {addNewWord, is_empty} from "./handlers.js";
 
 export const createLink = async function() {
     if (!await is_empty()) {
-  const response = await fetch('http://guess-word.onthewifi.com/api/word/', {
+  const response = await fetch('https://guess-word.onthewifi.com/api/word/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -26,7 +26,7 @@ export const createLink = async function() {
 
 export const getRandomWord = async function() {
   try {
-    let response = await fetch('http://guess-word.onthewifi.com/api/word/random_word/', {
+    let response = await fetch('https://guess-word.onthewifi.com/api/word/random_word/', {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -44,7 +44,7 @@ export const getRandomWord = async function() {
 
 export const getConcreteWord = async function(uuid) {
   try {
-    const response = await fetch('http://guess-word.onthewifi.com/api/word?' + uuid, {
+    const response = await fetch('https://guess-word.onthewifi.com/api/word?' + uuid, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
