@@ -1,6 +1,5 @@
 import random
 
-from django.shortcuts import render
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.decorators import action
@@ -23,9 +22,3 @@ class WordViewSet(viewsets.ModelViewSet):
         """Method for getting random word"""
         random_word = str((random.choice(Word.objects.all())))
         return Response(random_word)
-
-
-def error_404_view(request, exception):
-    # we add the path to the the 404.html file
-    # here. The name of our HTML file is 404.html
-    return render(request, '/static/html/404.html')
