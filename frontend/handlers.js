@@ -30,5 +30,5 @@ export async function is_empty() {
 
 export async function is_digit() {
     const wordInput = await document.getElementById('lname');
-    return !await wordInput.value.match(/\d/g)
+    return await wordInput.value.match(/\d/g)
 }
