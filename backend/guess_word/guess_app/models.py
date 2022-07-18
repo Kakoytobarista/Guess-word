@@ -2,7 +2,7 @@ import uuid as uuid
 
 from django.db import models
 
-from backend.guess_word.guess_app.validators import validate_length
+from guess_app.validators import validate_length
 
 
 class Word(models.Model):
