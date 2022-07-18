@@ -27,3 +27,8 @@ export async function is_empty() {
     const wordInput = await document.getElementById('lname');
     return !await wordInput.value;
 }
+
+export async function is_digit() {
+    const wordInput = await document.getElementById('lname');
+    return !await wordInput.value.match(/\d/g)
+}

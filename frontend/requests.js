@@ -1,9 +1,15 @@
 import {word} from './main.js'
-import {addNewWord, is_empty} from "./handlers.js";
+import {addNewWord, is_digit, is_empty} from "./handlers.js";
 
 export const createLink = async function() {
-    if (!await is_empty()) {
-  const response = await fetch('https://guess-word.onthewifi.com/api/word/', {
+    if (await is_empty()) {
+        window.alert('You need to write a word!')
+}
+    if (await is_digit()) {
+        window.alert('You can use only letters!')
+    }
+    else {
+        const response = await fetch('https://guess-word.onthewifi.com/api/word/', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -17,9 +23,6 @@ export const createLink = async function() {
   );
   const data = await response.json();
   return data['link']
-}
-    else {
-        window.alert('You need to write a word!')
     }
 }
 
