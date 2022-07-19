@@ -8,7 +8,7 @@ export const createLink = async function() {
     if (await is_digit()) {
         window.alert('You can using only letters!')
     }
-    if (await onlyLatinCharacters()){
+    if (!await onlyLatinCharacters()){
         window.alert('You can using only latin letters!')
     }
     else {
