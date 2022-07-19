@@ -35,6 +35,6 @@ export async function is_digit() {
 
 
 export async function onlyLatinCharacters() {
-    const wordInput = await document.getElementById('lname')
-    return /^[a-zA-Z]+$/.test(wordInput);
+    const wordInput = await document.getElementById('lname');
+    return /^[a-zA-Z]+$/.test(wordInput.value);
 }
