@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from guess_app.guess_app.models import Word
+from guess_app.models import Word
 
 
 class PostModelTest(TestCase):
