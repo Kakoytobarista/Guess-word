@@ -11,14 +11,17 @@ class PostModelTest(TestCase):
         super().setUpClass()
         cls.word = Word.objects.create(word='word')
 
-    def test_post_have_correct_object_name(self):
-        """Проверяем, что у модели Post строка возвращаемая
-         методом __str__ берется из поля text."""
-
+    def test_check_word_creating_correct(self):
+        """Check that object of model word creating is correct"""
         self.assertIn(self.word.__str__(), self.word.word)
 
-    # def test_post_have_length_str_method_with_15_symbols(self):
-    #     """Проверяем, что у модели Post длина строки
-    #      возвращаемая методом __str__ не более 15 символов."""
-    #
-    #     self.assertLess(len(self.post.__str__()), 16)
+    def test_check_word_have_is_minimum_1_length(self):
+        """Check that object of model word"""
+        word_with_min_value = Word.objects.create(word='w')
+        self.assertIn(word_with_min_value.__str__(), word_with_min_value.word)
+
+    def test_check_word_is_not_creating_with_zero_length(self):
+        """Check word is not creating with zero length"""
+        word_with_zero_length_value = Word.objects.create(word='')
+        self.assertFalse(word_with_zero_length_value)
+
