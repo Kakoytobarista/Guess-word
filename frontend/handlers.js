@@ -1,4 +1,4 @@
-import {wordInput} from "./constants";
+import {wordInput} from "./constants.js";
 
 
 export const getGetParam = function() {
