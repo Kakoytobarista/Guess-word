@@ -1,8 +1,6 @@
 from django.test import TestCase
 
-from guess_app.models import Word
-
-# Create your tests here.
+from guess_app.guess_app.models import Word
 
 
 class PostModelTest(TestCase):
@@ -23,4 +21,3 @@ class PostModelTest(TestCase):
     def test_check_uid_creating_automatically(self):
         """Check uid create automatically"""
         self.assertTrue(self.word.uuid)
-
