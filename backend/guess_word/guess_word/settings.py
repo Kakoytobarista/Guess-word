@@ -1,5 +1,12 @@
+import os
+
 from corsheaders.defaults import default_headers
 from pathlib import Path
+from dotenv import load_dotenv
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,12 +19,29 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-t2@ja*oz@u$nw(7b)n*$5a8-m%am+7ll3ngqu95b4qy$&naqeb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['112.74.117.117', 'localhost', '47.244.35.68', '127.0.0.1', 'stdworkflow.com', '0.0.0.0']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com']
 
 
 # Application definition
+
+sentry_sdk.init(
+    dsn="https://0ff7049194b64c81aef276829b258055@o1110399.ingest.sentry.io/6581782",
+    integrations=[
+        DjangoIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production.
+    traces_sample_rate=1.0,
+
+    # If you wish to associate users to errors (assuming you are using
+    # django.contrib.auth) you may enable sending PII data.
+    send_default_pii=True
+)
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -26,8 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders',
     'django_extensions',
+    'corsheaders',
     'django_filters',
     'rest_framework',
     'api.apps.ApiConfig',
@@ -44,10 +68,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 CORS_ORIGIN_ALLOW_ALL=True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
-    'http://127.0.0.1:8000'
+    'http://127.0.0.1:8000',
+    'http://guess-word.onthewifi.com',
+    'http://51.250.90.3'
 ]
 
 
@@ -56,6 +83,7 @@ CORS_ALLOW_HEADERS = default_headers + (
     'Access-Control-Allow-Credentials',
     'Access-Control-Allow-Origin',
 )
+
 CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
@@ -64,6 +92,7 @@ CORS_ALLOW_METHODS = [
     "POST",
     "PUT",
 ]
+
 
 ROOT_URLCONF = 'guess_word.urls'
 
@@ -98,8 +127,12 @@ WSGI_APPLICATION = 'guess_word.wsgi.application'
 
 DATABASES = {
     'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT')
     }
 }
 

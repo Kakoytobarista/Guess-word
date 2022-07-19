@@ -3,11 +3,11 @@ import random
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
 from rest_framework.decorators import action
+from rest_framework.response import Response
+
 
 from guess_app.models import Word
 from api.serializers import WordSerializers
-from rest_framework.filters import SearchFilter
-from rest_framework.response import Response
 
 
 class WordViewSet(viewsets.ModelViewSet):

@@ -203,7 +203,7 @@ h2 {
 .panels {
   background: #fff;
   box-shadow: 0 2rem 2rem #00000080;
-  min-height: 200px;
+  min-height: 150px;
   width: 100%;
   max-width: 500px;
   border-radius: 3px;
@@ -253,7 +253,6 @@ h2 {
 
 .custom-btn {
   width: 130px;
-  height: 40px;
   color: #fff;
   border-radius: 5px;
   padding: 10px 25px;
@@ -268,7 +267,6 @@ h2 {
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   outline: none;
-    margin-top: 10px;
     margin-left: 10px;
 }
 .btn-16 {
@@ -330,8 +328,8 @@ h2 {
     box-sizing: border-box;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 8px;
 }
 
 
@@ -340,6 +338,11 @@ h2 {
 p {
     font-family: "Ubuntu", sans-serif;
     margin-left: 10px;
+}
+
+.text {
+    font-size: 15px;
+    margin-left: 37px;
 }
 
 
