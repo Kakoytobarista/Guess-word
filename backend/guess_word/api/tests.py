@@ -15,7 +15,7 @@ class PostModelTest(TestCase):
         """Проверяем, что у модели Post строка возвращаемая
          методом __str__ берется из поля text."""
 
-        self.assertIn(self.word.__str__(), self.word.text)
+        self.assertIn(self.word.__str__(), self.word.word)
 
     # def test_post_have_length_str_method_with_15_symbols(self):
     #     """Проверяем, что у модели Post длина строки
