@@ -1,5 +1,5 @@
 import {word} from './main.js'
-import {addNewWord, is_digit, is_empty, onlyLatinCharacters} from "./handlers.js";
+import {addNewWord, is_digit, is_empty, is_not_more_then_13_length, onlyLatinCharacters} from "./handlers.js";
 
 export const createLink = async function() {
     if (await is_empty()) {
@@ -14,6 +14,10 @@ export const createLink = async function() {
 
     if (await onlyLatinCharacters()){
         window.alert('You can using only latin letters!')
+        return
+    }
+    if (await is_not_more_then_13_length()){
+        window.alert('Word can"t be with less then 1 letter')
     }
     else {
         const response = await fetch('https://guess-word.onthewifi.com/api/word/', {

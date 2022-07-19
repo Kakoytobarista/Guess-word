@@ -38,3 +38,8 @@ export async function onlyLatinCharacters() {
     const wordInput = await document.getElementById('lname');
     return !/^[a-zA-Z]+$/.test(wordInput.value);
 }
+
+export async function is_not_more_then_13_length() {
+    const wordInput = await document.getElementById('lname');
+    return wordInput.value.length > 13;
+}
