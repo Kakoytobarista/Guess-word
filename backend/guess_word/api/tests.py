@@ -9,7 +9,7 @@ class PostModelTest(TestCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
-        cls.word = Word.objects.create(username='word')
+        cls.word = Word.objects.create(word='word')
 
     def test_post_have_correct_object_name(self):
         """Проверяем, что у модели Post строка возвращаемая
