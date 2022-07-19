@@ -4,9 +4,12 @@ import {addNewWord, is_digit, is_empty, onlyLatinCharacters} from "./handlers.js
 export const createLink = async function() {
     if (await is_empty()) {
         window.alert('You need to write a word!')
+        return
+
 }
     if (await is_digit()) {
         window.alert('You can using only letters!')
+        return
     }
 
     if (await onlyLatinCharacters()){
