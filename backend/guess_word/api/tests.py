@@ -23,5 +23,6 @@ class PostModelTest(TestCase):
     def test_check_word_is_not_creating_with_zero_length(self):
         """Check word is not creating with zero length"""
         word_with_zero_length_value = Word.objects.create(word='')
+        print(word_with_zero_length_value)
         self.assertFalse(word_with_zero_length_value)
 
