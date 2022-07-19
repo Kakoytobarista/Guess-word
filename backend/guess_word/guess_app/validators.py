@@ -17,5 +17,5 @@ def validate_is_digits_inside(value):
 
 def validate_is_latin_letters(value):
     """Validator for check is latin letters"""
-    if not re.search(r'[^a-zA-Zа]', value):
+    if re.search(r'[^a-zA-Zа]', value):
         raise ValidationError(u'%s you need using only latin letters' % value)
