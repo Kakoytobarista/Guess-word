@@ -4,3 +4,5 @@ export const input = document.getElementById('lname')
 export const keyboardButtons = Array.from(
     document.querySelectorAll(".Game-keyboard-button")
 );
+
+export const wordInput = await document.getElementById('lname');

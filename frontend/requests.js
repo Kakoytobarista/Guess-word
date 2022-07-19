@@ -17,7 +17,7 @@ export const createLink = async function() {
         return
     }
     if (await is_not_more_then_13_length()){
-        window.alert('Word can"t be with less then 1 letter')
+        window.alert('Word can"t be with more then 13 letter')
     }
     else {
         const response = await fetch('https://guess-word.onthewifi.com/api/word/', {

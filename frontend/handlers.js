@@ -1,3 +1,6 @@
+import {wordInput} from "./constants";
+
+
 export const getGetParam = function() {
     const currentUrl = window.location.href
     if (currentUrl.includes("=")) {
@@ -24,22 +27,18 @@ export async function copy() {
 
 
 export async function is_empty() {
-    const wordInput = await document.getElementById('lname');
     return !await wordInput.value;
 }
 
 export async function is_digit() {
-    const wordInput = await document.getElementById('lname');
     return await wordInput.value.match(/\d/g)
 }
 
 
 export async function onlyLatinCharacters() {
-    const wordInput = await document.getElementById('lname');
     return !/^[a-zA-Z]+$/.test(wordInput.value);
 }
 
 export async function is_not_more_then_13_length() {
-    const wordInput = await document.getElementById('lname');
     return wordInput.value.length > 13;
 }
