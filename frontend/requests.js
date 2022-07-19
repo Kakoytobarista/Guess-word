@@ -1,12 +1,15 @@
 import {word} from './main.js'
-import {addNewWord, is_digit, is_empty} from "./handlers.js";
+import {addNewWord, is_digit, is_empty, onlyLatinCharacters} from "./handlers.js";
 
 export const createLink = async function() {
     if (await is_empty()) {
         window.alert('You need to write a word!')
 }
     if (await is_digit()) {
-        window.alert('You can use only letters!')
+        window.alert('You can using only letters!')
+    }
+    if (await onlyLatinCharacters()){
+        window.alert('You can using only latin letters!')
     }
     else {
         const response = await fetch('https://guess-word.onthewifi.com/api/word/', {
