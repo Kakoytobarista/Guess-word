@@ -20,9 +20,7 @@ class PostModelTest(TestCase):
         word_with_min_value = Word.objects.create(word='w')
         self.assertIn(word_with_min_value.__str__(), word_with_min_value.word)
 
-    def test_check_word_is_not_creating_with_zero_length(self):
-        """Check word is not creating with zero length"""
-        word_with_zero_length_value = Word.objects.create(word='')
-        print(word_with_zero_length_value)
-        self.assertFalse(word_with_zero_length_value)
+    def test_check_uid_creating_automatically(self):
+        """Check uid create automatically"""
+        self.assertTrue(self.word.uuid)
 
