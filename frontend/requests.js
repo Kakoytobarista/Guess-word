@@ -1,14 +1,14 @@
 import {word} from './main.js'
 import {addNewWord, is_digit, is_empty, onlyLatinCharacters} from "./handlers.js";
 
-export const createLink = async function() {
+export const createLink = async function(word) {
     if (await is_empty()) {
         window.alert('You need to write a word!')
 }
     if (await is_digit()) {
         window.alert('You can using only letters!')
     }
-    if (!await onlyLatinCharacters()){
+    if (await onlyLatinCharacters(word)){
         window.alert('You can using only latin letters!')
     }
     else {

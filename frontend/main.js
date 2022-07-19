@@ -8,7 +8,7 @@ import {el, input, keyboardButtons} from './constants.js'
 const createElementWithLink = async function () {
   try {
     let linkText;
-    linkText = await createLink()
+    linkText = await createLink(window.hardcodedWord)
     await createTextElement(linkText)
 
   } catch (e) {
