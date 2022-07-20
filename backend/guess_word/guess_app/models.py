@@ -2,9 +2,7 @@ import uuid as uuid
 
 from django.db import models
 
-from guess_app.validators import validate_length
 from utils.validators import validate_is_digits_inside, validate_is_latin_letters
-
 from utils.handlers import DecodeEncodeObject
 
 
