@@ -6,7 +6,6 @@ from api.views import WordViewSet
 
 router = routers.DefaultRouter()
 router.register('word', WordViewSet, basename='word')
-# router.register('get_random_word', )
 
 
 urlpatterns = (
