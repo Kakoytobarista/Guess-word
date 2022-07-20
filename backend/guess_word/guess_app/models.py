@@ -22,10 +22,10 @@ class Word(models.Model):
         print(encode_word)
         print(encode_word)
         print(encode_word)
-        word_object = cls(word=encode_word,
-                          uuid=uuid)
+        word = cls(word=encode_word,
+                   uuid=uuid)
         # do something with the book
-        return word_object
+        return word
 
     def __str__(self):
         return self.word
