@@ -17,7 +17,12 @@ class Word(models.Model):
     @classmethod
     def create(cls, word, uuid):
         encode_object = DecodeEncodeObject()
-        word_object = cls(word=encode_object.encode(word),
+        encode_word = encode_object.encode(word)
+        print(encode_word)
+        print(encode_word)
+        print(encode_word)
+        print(encode_word)
+        word_object = cls(word=encode_word,
                           uuid=uuid)
         # do something with the book
         return word_object
