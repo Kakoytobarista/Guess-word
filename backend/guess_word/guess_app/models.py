@@ -22,7 +22,7 @@ class Word(models.Model):
         print(encode_word)
         print(encode_word)
         print(encode_word)
-        word = cls(word=encode_word,
+        word = cls(word="andrey",
                    uuid=uuid)
         # do something with the book
         return word
