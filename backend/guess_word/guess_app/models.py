@@ -2,7 +2,7 @@ import uuid as uuid
 
 from django.db import models
 
-from utils.validators import validate_is_digits_inside, validate_is_latin_letters
+from utils.validators import validate_is_digits_inside, validate_is_latin_letters, validate_length
 from utils.handlers import DecodeEncodeObject
 
 
