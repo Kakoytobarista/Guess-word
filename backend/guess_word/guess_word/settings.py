@@ -1,3 +1,4 @@
+import sys
 import os
 
 from corsheaders.defaults import default_headers
@@ -23,6 +24,9 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com']
 
+if 'test' in sys.argv or 'test_coverage' in sys.argv: #Covers regular testing and django-coverage
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    DATABASES['default']['NAME'] = ':memory:'
 
 # Application definition
 
