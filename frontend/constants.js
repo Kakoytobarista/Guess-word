@@ -6,3 +6,19 @@ export const keyboardButtons = Array.from(
 );
 
 export const wordInput = document.getElementById('lname');
+
+
+export const decodeDict = {
+    "!": "a",
+    "@": "b",
+    "#": "c",
+    "$": "d",
+    "%": "e",
+    "^": "f",
+    "&": "g",
+    "*": "h",
+    "(": "i",
+    ")": "j",
+    "-": "k",
+    "+": "l"
+}

@@ -3,8 +3,9 @@ import uuid as uuid
 from django.db import models
 
 from guess_app.validators import validate_length
+from utils.validators import validate_is_digits_inside, validate_is_latin_letters
 
-from guess_app.validators import validate_is_digits_inside, validate_is_latin_letters
+from utils.handlers import DecodeEncodeObject
 
 
 class Word(models.Model):
@@ -14,6 +15,14 @@ class Word(models.Model):
                             validators=[validate_length, validate_is_digits_inside,
                                         validate_is_latin_letters])
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+
+    @classmethod
+    def create(cls, word, uuid):
+        encode_object = DecodeEncodeObject()
+        word_object = cls(word=encode_object.encode(word),
+                          uuid=uuid)
+        # do something with the book
+        return word_object
 
     def __str__(self):
         return self.word

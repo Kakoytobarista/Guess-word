@@ -1,5 +1,18 @@
-import {wordInput} from "./constants.js";
+import {wordInput, decodeDict} from "./constants.js";
 
+
+export const decodeFunc = function() {
+    let string = "!s+!n"
+    let result = ""
+    for (let i = 0; i < string.length; i++) {
+        if (string[i] in decodeDict) {
+            result += decodeDict[string[i]]
+        } else {
+            result += string[i]
+        }
+    }
+    return result
+}
 
 export const getGetParam = function() {
     const currentUrl = window.location.href
@@ -9,7 +22,7 @@ export const getGetParam = function() {
 }
 
 export const addNewWord = async function(word) {
-  window.hardcodedWord = word.toLowerCase()
+  window.hardcodedWord = decodeFunc(word.toLowerCase())
 }
 
 export const createTextElement = async function(linkText) {
