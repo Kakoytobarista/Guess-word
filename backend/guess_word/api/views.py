@@ -16,6 +16,9 @@ class WordViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, ]
     filterset_fields = ['word', 'uuid']
 
+
+    @method_decorator(vary_on_cookie)
+    @method_decorator(cache_page(60*60))
     @action(methods=['get'],
             detail=False, )
     def random_word(self, *args):
