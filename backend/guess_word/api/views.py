@@ -5,7 +5,6 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
-from ratelimit.decorators import ratelimit
 
 from guess_app.models import Word
 from api.serializers import WordSerializers
