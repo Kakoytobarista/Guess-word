@@ -15,7 +15,19 @@ class DecodeEncodeObject(object):
             "i": "(",
             "j": ")",
             "k": "-",
-            "l": "+"
+            "l": "+",
+            "m": "Q",
+            "n": "W",
+            "o": "e",
+            "p": "r",
+            "q": "T",
+            "s": "y",
+            "t": "U",
+            "v": "i",
+            "w": "o",
+            "x": "p",
+            "y": "A",
+            "z": "s"
         }
 
     def encode(self, word: str) -> str:
