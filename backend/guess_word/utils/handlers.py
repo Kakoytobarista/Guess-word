@@ -16,17 +16,17 @@ class DecodeEncodeObject(object):
             "j": ")",
             "k": "-",
             "l": "+",
-            "m": "Q",
-            "n": "W",
+            "m": "q",
+            "n": "w",
             "o": "e",
             "p": "r",
-            "q": "T",
+            "q": "t",
             "s": "y",
-            "t": "U",
+            "t": "u",
             "v": "i",
             "w": "o",
             "x": "p",
-            "y": "A",
+            "y": "a",
             "z": "s"
         }
 
