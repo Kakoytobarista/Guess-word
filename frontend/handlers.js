@@ -1,17 +1,16 @@
 import {wordInput, decodeDict} from "./constants.js";
 
 
-export const decodeFunc = function() {
-    let string = "!s+!n"
-    let result = ""
-    for (let i = 0; i < string.length; i++) {
-        if (string[i] in decodeDict) {
-            result += decodeDict[string[i]]
+export const decodeFunc = function(encodedWord) {
+    let decodedWord = ""
+    for (let i = 0; i < encodedWord.length; i++) {
+        if (encodedWord[i] in decodeDict) {
+            decodedWord += decodeDict[encodedWord[i]]
         } else {
-            result += string[i]
+            decodedWord += encodedWord[i]
         }
     }
-    return result
+    return decodedWord
 }
 
 export const getGetParam = function() {
