@@ -14,10 +14,9 @@ class Word(models.Model):
                                         validate_is_latin_letters])
     uuid = models.UUIDField(default=uuid.uuid4, editable=False)
 
-    @classmethod
-    def save(cls, *args, **kwargs):
+    def save(self, *args, **kwargs):
         encode_object = DecodeEncodeObject()
-        cls.word = encode_object.encode(cls.word)
+        self.word = encode_object.encode(self.word)
         super().save(*args, **kwargs)
 
     def __str__(self):
