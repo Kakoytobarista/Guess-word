@@ -5,7 +5,10 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 97338d7580a817edf9926f6288dc2e9264993d78
 from guess_app.models import Word
 from api.serializers import WordSerializers
 
