@@ -1,5 +1,9 @@
 ## node modules:
 node_modules
-.idea
+./.idea/GuessWord.iml
+/.idea
 .env
 __pycache__
+.idea/misc.xml
+/.idea/GuessWord.iml
+.idea/
