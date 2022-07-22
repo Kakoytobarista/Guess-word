@@ -21,7 +21,7 @@ class WordViewSet(viewsets.ModelViewSet):
 
 
     @method_decorator(vary_on_cookie)
-    @method_decorator(cache_page(8*1))
+    @method_decorator(cache_page(8))
     @action(methods=['get'],
             detail=False, )
     def random_word(self, *args):
