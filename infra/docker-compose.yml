@@ -5,13 +5,11 @@ services:
     image: postgres:13.0-alpine
     volumes:
       - postgres_data:/var/lib/postgresql/data/
-    ports:
-      - 5432:5432
     env_file:
       - ./.env
 
   web:
-    build: ../backend/.
+    image: heyaslan/guess_word:v1.1.2
     restart: always
     depends_on:
       - db
