@@ -9,7 +9,7 @@ services:
       - ./.env
 
   web:
-    image: heyaslan/guess_word:v1.1.2
+    build: ../backend/.
     restart: always
     depends_on:
       - db
