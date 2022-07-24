@@ -141,11 +141,11 @@ CACHES = {
     }
 }
 
-
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
-
-CACHE_TTL = 10 * 1
+#
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_CACHE_ALIAS = "default"
+#
+# CACHE_TTL = 10 * 1
 
 
 AUTH_PASSWORD_VALIDATORS = [
