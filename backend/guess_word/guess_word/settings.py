@@ -109,7 +109,7 @@ DATABASES = {
         'NAME': 'guess_word_user',
         'USER': 'guess_word_user',
         'PASSWORD': 'xxxyyyzzz',
-        'HOST': '0.0.0.0',
+        'HOST': 'db',
         'PORT': '5432'
     }
 }
