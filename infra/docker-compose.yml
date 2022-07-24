@@ -3,8 +3,6 @@ services:
 
   db:
     image: postgres:13.0-alpine
-    ports:
-      - 5432:5432
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     env_file:
@@ -12,8 +10,6 @@ services:
 
   web:
     build: ../backend/.
-    ports:
-      - 8000:8000
     restart: always
     depends_on:
       - db
