@@ -15,7 +15,8 @@ SECRET_KEY = os.getenv('DJANGO_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com']
+ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com',
+                 '51.250.13.153:443']
 
 
 sentry_sdk.init(
