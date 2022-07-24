@@ -131,20 +131,21 @@ REST_FRAMEWORK = {
 }
 
 
-# CACHES = {
-#     "default": {
-#         "BACKEND": "django_redis.cache.RedisCache",
-#         "LOCATION": "redis://127.0.0.1:6379/1",
-#         "OPTIONS": {
-#             "CLIENT_CLASS": "django_redis.client.DefaultClient",
-#         }
-#     }
-# }
-#
-# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-# SESSION_CACHE_ALIAS = "default"
-#
-# CACHE_TTL = 10 * 1
+CACHES = {
+    "default": {
+        "BACKEND": os.getenv('CACHE_ENGINE'),
+        "LOCATION": os.getenv('CACHE_HOST'),
+        "OPTIONS": {
+            "CLIENT_CLASS": os.getenv('CACHE_CLASS'),
+        }
+    }
+}
+
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+
+CACHE_TTL = 10 * 1
 
 
 AUTH_PASSWORD_VALIDATORS = [
