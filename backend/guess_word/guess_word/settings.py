@@ -106,8 +106,8 @@ WSGI_APPLICATION = 'guess_word.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'aslanrdl',
-        'USER': 'aslanrdl',
+        'NAME': 'guess_word_user',
+        'USER': 'guess_word_user',
         'PASSWORD': 'xxxyyyzzz',
         'HOST': 'db',
         'PORT': '5432'
