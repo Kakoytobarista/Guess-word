@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_KEY')
 
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.94.71', 'guess-word.onthewifi.com',
                  '51.250.13.153:443']
@@ -109,7 +109,7 @@ DATABASES = {
         'NAME': 'guess_word_user',
         'USER': 'guess_word_user',
         'PASSWORD': 'xxxyyyzzz',
-        'HOST': '127.0.0.1',
+        'HOST': '0.0.0.0',
         'PORT': '5432'
     }
 }
