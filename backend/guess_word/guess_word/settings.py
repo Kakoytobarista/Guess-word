@@ -15,7 +15,7 @@ SECRET_KEY = os.getenv('DJANGO_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com',
+ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.94.71', 'guess-word.onthewifi.com',
                  '51.250.13.153:443']
 
 
@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://guess-word.onthewifi.com',
-    'http://51.250.90.3'
+    'http://51.250.94.71'
 ]
 
 
