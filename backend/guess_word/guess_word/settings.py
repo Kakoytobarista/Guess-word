@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://guess-word.onthewifi.com',
-    'http://51.250.94.71'
+    'http://51.250.94.71',
 ]
 
 
