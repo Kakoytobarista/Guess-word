@@ -15,8 +15,7 @@ SECRET_KEY = os.getenv('DJANGO_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com',
-                 '51.250.13.153']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com']
 
 
 sentry_sdk.init(
@@ -105,12 +104,12 @@ WSGI_APPLICATION = 'guess_word.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT')
+        'ENGINE': os.getenv('DB_ENGINE', default='django.db.backends.postgresql'),
+        'NAME': os.getenv('DB_NAME', default='guess_word'),
+        'USER': os.getenv('POSTGRES_USER', default='guess_word_user'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD', default='xxxyyyzzz'),
+        'HOST': os.getenv('DB_HOST', default='127.0.0.1'),
+        'PORT': os.getenv('DB_PORT', default='5432')
     }
 }
 
