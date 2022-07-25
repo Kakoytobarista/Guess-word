@@ -147,12 +147,6 @@ CACHES = {
 }
 
 
-# SESSION_ENGINE = os.getenv('SESSION_ENGINE',
-#                            default='django.contrib.sessions.backends.cache')
-# SESSION_CACHE_ALIAS = os.getenv('SESSION_CACHE_ALIAS', default='default')
-#
-# CACHE_TTL = os.getenv('CACHE_TTL', default=10)
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
