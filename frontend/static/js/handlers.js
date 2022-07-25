@@ -59,44 +59,40 @@ export async function is_not_more_then_13_length() {
 export async function addTrueForRules() {
     let bool = true
     while (bool) {
-      if (buttonRules.getAttribute('active') === 'true' &&
-        panels.style.display === 'none') {
-        panels.style.display = 'block';
-        bool = false
-        break
+        if (buttonRules.getAttribute('active') === 'true' &&
+            panels.style.display === 'none') {
+            panels.style.display = 'block';
+            bool = false
+            break
+        }
+        if (buttonRules.getAttribute('active') === 'true' &&
+            panels.style.display !== 'none') {
+            panels.style.display = 'none';
+            bool = false
+            break
+        }
     }
-      if (buttonRules.getAttribute('active') === 'true' &&
-          panels.style.display === 'block'
-      ) {
-        panels.style.display = 'none';
-        bool = false
-        break
-    }
-  await buttonRules.setAttribute('active', 'true')
-  await buttonGenerateLink.setAttribute('active', 'false')
 
-}
+    await buttonRules.setAttribute('active', 'true')
+    await buttonGenerateLink.setAttribute('active', 'false')
 }
 
 export async function addTrueForGenerateLink() {
   let bool = true
   while (bool) {
-    if (buttonGenerateLink.getAttribute('active') === 'true' &&
-      panels.style.display === 'none') {
-      panels.style.display = 'block';
-      bool = false
-      break
-    }
-    if (buttonGenerateLink.getAttribute('active') === 'true' &&
-        panels.style.display === 'block'
-    ) {
-
-      panels.style.display = 'none';
-      bool = false
-      break
+      if (buttonGenerateLink.getAttribute('active') === 'true' &&
+          panels.style.display === 'none') {
+          panels.style.display = 'block';
+          bool = false
+          break
+      }
+      if (buttonGenerateLink.getAttribute('active') === 'true' &&
+          panels.style.display !== 'none') {
+          panels.style.display = 'none';
+          bool = false
+          break
+      }
   }
   await buttonGenerateLink.setAttribute('active', 'true')
   await buttonRules.setAttribute('active', 'false')
-
-  }
 }
