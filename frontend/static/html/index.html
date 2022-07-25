@@ -20,15 +20,15 @@
         <h1 class="logo">ASLANRDL</h1>
     </header>
 <div class="warpper">
-  <input class="radio" id="one" name="group" type="radio" active="true" checked>
-  <input class="radio" id="two" name="group" type="radio" active="false">
+  <input class="radio" id="one" name="group" type="radio" firstClick="true" checked>
+  <input class="radio" id="two" name="group" type="radio" firstClick="false">
 
   <div class="tabs">
     <label class="tab" id="one-tab" for="one">Rules</label>
     <label class="tab" id="two-tab" for="two">Generate Link</label>
   </div>
 
-  <div id="panels" class="panels">
+  <div id="panels" class="panels" style="display: block;">
     <div class="panel" id="one-panel">
       <div class="panel-title"></div>
       <p class="rulesText">Guess the WORDLE in five tries.

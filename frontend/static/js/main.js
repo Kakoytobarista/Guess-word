@@ -169,15 +169,6 @@ keyboardButtons.forEach((button) =>
   button.addEventListener("click", buttonsHandler)
 );
 
-const addTrue = function () {
-  if (buttonRules.onclick) {
-    buttonRules.setAttribute('active', 'true')
-  }
-  if (buttonGenerateLink.onclick) {
-    buttonGenerateLink.setAttribute('active', 'true')
-  }
-}
-
 
 buttonRules.addEventListener("click", addTrueForRules)
 buttonGenerateLink.addEventListener("click", addTrueForGenerateLink)
