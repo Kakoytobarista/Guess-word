@@ -202,7 +202,7 @@ h2 {
 
 .panels {
   background: #fff;
-  box-shadow: 0 2rem 2rem #00000080;
+  box-shadow: 0 0.5rem 0.5rem #00000080;
   min-height: 150px;
   width: 100%;
   max-width: 500px;

@@ -1,4 +1,4 @@
-import {wordInput, decodeDict} from "./constants.js";
+import {wordInput, decodeDict, buttonRules, panels, buttonGenerateLink} from "./constants.js";
 
 
 export const decodeFunc = function(encodedWord) {
@@ -53,4 +53,49 @@ export async function onlyLatinCharacters() {
 
 export async function is_not_more_then_13_length() {
     return wordInput.value.length > 13;
+}
+
+
+export async function addTrueForRules() {
+    let bool = true
+  while (bool) {
+    if (buttonRules.getAttribute('active') === 'true' &&
+        panels.style.display === 'none') {
+      console.log('Rules not none')
+      panels.style.display = 'block';
+      bool = false
+      break
+    }
+    if (buttonRules.getAttribute('active') === 'true') {
+      console.log('Rules none')
+      panels.style.display = 'none';
+      bool = false
+      break
+    }
+  buttonRules.setAttribute('active', 'true')
+  buttonGenerateLink.setAttribute('active', 'false')
+
+}
+}
+
+export async function addTrueForGenerateLink() {
+  let bool = true
+  while (bool) {
+  if (buttonGenerateLink.getAttribute('active') === 'true' &&
+      panels.style.display === 'none') {
+      console.log('Rules not none')
+      panels.style.display = 'block';
+      bool = false
+      break
+    }
+  if (buttonGenerateLink.getAttribute('active') === 'true') {
+      console.log('Rules none')
+      panels.style.display = 'none';
+      bool = false
+      break
+  }
+  buttonGenerateLink.setAttribute('active', 'true')
+  buttonRules.setAttribute('active', 'false')
+
+  }
 }

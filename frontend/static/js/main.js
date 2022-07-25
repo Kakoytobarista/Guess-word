@@ -1,6 +1,6 @@
-import {createTextElement, getGetParam, copy} from './handlers.js'
+import {createTextElement, getGetParam, copy, addTrueForRules, addTrueForGenerateLink} from './handlers.js'
 import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
-import {el, input, keyboardButtons} from './constants.js'
+import {el, input, keyboardButtons, buttonRules, buttonGenerateLink} from './constants.js'
 
 
 
@@ -169,5 +169,17 @@ keyboardButtons.forEach((button) =>
   button.addEventListener("click", buttonsHandler)
 );
 
+const addTrue = function () {
+  if (buttonRules.onclick) {
+    buttonRules.setAttribute('active', 'true')
+  }
+  if (buttonGenerateLink.onclick) {
+    buttonGenerateLink.setAttribute('active', 'true')
+  }
+}
+
+
+buttonRules.addEventListener("click", addTrueForRules)
+buttonGenerateLink.addEventListener("click", addTrueForGenerateLink)
 
 document.getElementById('copy').addEventListener('click', copy)
