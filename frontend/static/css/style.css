@@ -360,3 +360,8 @@ p {
 }
 
 
+/**/
+
+body.swal2-height-auto {
+    height: min-content!important;
+}

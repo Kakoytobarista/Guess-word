@@ -64,7 +64,15 @@ const sumbitWord = (cells) => {
     }
 
     if (lettersGuessed === window.hardcodedWord.length) {
-      console.log("won");
+    Swal.fire({
+      title: 'Custom animation with Animate.css',
+      showClass: {
+        popup: 'animate__animated animate__fadeInDown'
+      },
+      hideClass: {
+        popup: 'animate__animated animate__fadeOutUp'
+      }
+    })
       window.gameEnded = true;
     } else if (window.currentAttempt === window.attempts) {
       console.log("lost");
