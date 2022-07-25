@@ -73,7 +73,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd infra
+            cd Guess-word/infra
             docker-compose stop
             docker system prune -a -f
             touch .env
