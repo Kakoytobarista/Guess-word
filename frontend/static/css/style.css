@@ -209,6 +209,7 @@ h2 {
   border-radius: 3px;
   overflow: hidden;
   padding: 20px;
+  display: block;
 }
 
 .panel {
