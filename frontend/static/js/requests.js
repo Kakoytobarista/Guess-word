@@ -3,21 +3,33 @@ import {addNewWord, is_digit, is_empty, is_not_more_then_13_length, onlyLatinCha
 
 export const createLink = async function() {
     if (await is_empty()) {
-        window.alert('You need to write a word!')
+        Swal.fire({
+          title: 'You need to write a word!',
+          confirmButtonColor: '#944743',
+    })
         return
 
 }
     if (await is_digit()) {
-        window.alert('You can using only letters!')
+        Swal.fire({
+          title: 'You can using only letters!',
+          confirmButtonColor: '#944743',
+    })
         return
     }
 
     if (await onlyLatinCharacters()){
-        window.alert('You can using only latin letters!')
+        Swal.fire({
+          title: 'You can using only latin letters!',
+          confirmButtonColor: '#944743',
+    })
         return
     }
     if (await is_not_more_then_13_length()){
-        window.alert('Word can"t be with more then 13 letter')
+        Swal.fire({
+          title: 'Word can"t be with more then 13 letter!',
+          confirmButtonColor: '#944743',
+    })
     }
     else {
         const response = await fetch('http://guess-word.onthewifi.com/api/word/', {
