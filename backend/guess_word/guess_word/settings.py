@@ -15,7 +15,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_KEY',
                        default='django-insecure-t2@ja*oz@u$nw(7b)n*$5a8-m%am+7ll3ngqu95b4qy$&naqeb')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.94.71', 'guess-word.onthewifi.com',
                  '51.250.13.153:443']
@@ -145,7 +145,6 @@ CACHES = {
         }
     }
 }
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
