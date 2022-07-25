@@ -50,7 +50,7 @@ const sumbitWord = (cells) => {
           lettersEntered[cells[i].innerText] !== "correct" &&
           lettersEntered[cells[i].innerText] !== "elsewhere"
         ) {
-          lettersEntered[cells[i].innerText] = "absent";
+          lettersEntered[cells[i].innerText] = "absent"
         }
       } else if (
         window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
@@ -90,6 +90,8 @@ const sumbitWord = (cells) => {
               `Game-keyboard-button-${lettersEntered[letter]}`
             );
           }
+        document.querySelectorAll('.Game-keyboard-button-absent')
+        .forEach((function(x){ x.setAttribute("style","pointer-events: none;");}))
         });
       });
     }
