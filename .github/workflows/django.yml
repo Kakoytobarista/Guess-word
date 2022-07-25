@@ -91,4 +91,4 @@ jobs:
             echo SESSION_ENGINE=${{ secrets.SESSION_ENGINE }} >> .env
             echo SESSION_CACHE_ALIAS=${{ secrets.SESSION_CACHE_ALIAS }} >> .env
             echo CACHE_TTL=${{ secrets.CACHE_TTL }} >> .env
-            sudo docker-compose up -d
+            sudo docker-compose build
