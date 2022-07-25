@@ -1,4 +1,3 @@
-import sys
 import os
 
 from corsheaders.defaults import default_headers
@@ -14,9 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_KEY')
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '51.250.90.3', 'guess-word.onthewifi.com']
+ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.94.71', 'guess-word.onthewifi.com',
+                 '51.250.13.153:443']
 
 
 sentry_sdk.init(
@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://guess-word.onthewifi.com',
-    'http://51.250.90.3'
+    'http://51.250.94.71',
 ]
 
 
@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'guess_word.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.getenv('DB_ENGINE', 'django.db.backends.postgresql'),
+        'ENGINE': os.getenv('DB_ENGINE'),
         'NAME': os.getenv('DB_NAME'),
         'USER': os.getenv('POSTGRES_USER'),
         'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
@@ -114,9 +114,9 @@ DATABASES = {
     }
 }
 
-if 'test' in sys.argv or 'test_coverage' in sys.argv:
-    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
-    DATABASES['default']['NAME'] = ':memory:'
+# if 'test' in sys.argv or 'test_coverage' in sys.argv:
+#     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+#     DATABASES['default']['NAME'] = ':memory:'
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
@@ -133,18 +133,19 @@ REST_FRAMEWORK = {
 
 CACHES = {
     "default": {
-        "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/1",
+        "BACKEND": os.getenv('CACHE_ENGINE'),
+        "LOCATION": os.getenv('CACHE_HOST'),
         "OPTIONS": {
-            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "CLIENT_CLASS": os.getenv('CACHE_CLASS'),
         }
     }
 }
 
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_CACHE_ALIAS = "default"
-
-CACHE_TTL = 10 * 1
+#
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+# SESSION_CACHE_ALIAS = "default"
+#
+# CACHE_TTL = 10 * 1
 
 
 AUTH_PASSWORD_VALIDATORS = [
