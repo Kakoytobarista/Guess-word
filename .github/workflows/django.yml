@@ -84,7 +84,6 @@ jobs:
             echo DB_HOST=${{ secrets.DB_HOST }} >> .env
             echo DB_PORT=${{ secrets.DB_PORT }} >> .env
             echo SENTRY_KEY=${{ secrets.SENTRY_KEY }} >> .env
-            echo DJANGO_KEY=${{ secrets.DJANGO_KEY }} >> .env
             echo CACHE_ENGINE=${{ secrets.CACHE_ENGINE }} >> .env
             echo CACHE_HOST=${{ secrets.CACHE_HOST }} >> .env
             echo CACHE_CLASS=${{ secrets.CACHE_CLASS }} >> .env
