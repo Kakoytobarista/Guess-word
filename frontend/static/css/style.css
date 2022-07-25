@@ -364,7 +364,6 @@ p {
 
 .Game-keyboard-button::before {
   position: absolute;
-  content: "";
   background: #f9c4d2;
 
   transform: translate3d(0, 0.75em, -1em);
