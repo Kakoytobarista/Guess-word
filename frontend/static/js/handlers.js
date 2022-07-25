@@ -61,19 +61,17 @@ export async function addTrueForRules() {
   while (bool) {
     if (buttonRules.getAttribute('active') === 'true' &&
         panels.style.display === 'none') {
-      console.log('Rules not none')
       panels.style.display = 'block';
       bool = false
       break
     }
     if (buttonRules.getAttribute('active') === 'true') {
-      console.log('Rules none')
       panels.style.display = 'none';
       bool = false
       break
     }
-  buttonRules.setAttribute('active', 'true')
-  buttonGenerateLink.setAttribute('active', 'false')
+  await buttonRules.setAttribute('active', 'true')
+  await buttonGenerateLink.setAttribute('active', 'false')
 
 }
 }
@@ -83,19 +81,18 @@ export async function addTrueForGenerateLink() {
   while (bool) {
   if (buttonGenerateLink.getAttribute('active') === 'true' &&
       panels.style.display === 'none') {
-      console.log('Rules not none')
       panels.style.display = 'block';
       bool = false
       break
     }
   if (buttonGenerateLink.getAttribute('active') === 'true') {
-      console.log('Rules none')
+
       panels.style.display = 'none';
       bool = false
       break
   }
-  buttonGenerateLink.setAttribute('active', 'true')
-  buttonRules.setAttribute('active', 'false')
+  await buttonGenerateLink.setAttribute('active', 'true')
+  await buttonRules.setAttribute('active', 'false')
 
   }
 }
