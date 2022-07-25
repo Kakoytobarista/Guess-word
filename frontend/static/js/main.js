@@ -64,10 +64,16 @@ const sumbitWord = (cells) => {
     }
 
     if (lettersGuessed === window.hardcodedWord.length) {
-      console.log("won");
+    Swal.fire({
+      title: 'You won!',
+      confirmButtonColor: '#944743',
+    })
       window.gameEnded = true;
     } else if (window.currentAttempt === window.attempts) {
-      console.log("lost");
+    Swal.fire({
+      title: 'You blew it!',
+      confirmButtonColor: '#944743',
+    })
       window.gameEnded = true;
     } else {
       window.currentAttempt += 1;

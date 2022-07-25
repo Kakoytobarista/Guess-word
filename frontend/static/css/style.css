@@ -352,11 +352,31 @@ p {
 }
 
 
-/**/
+/*!**! SWAL*/
 
-.divLinkElement {
-    position: relative;
-    top: 10px;
+
+.swal2-shown { display:flex; height:100vh; }
+.swal2-confirm swal2-styled swal2-default-outline {
+  font-family: "Ubuntu", sans-serif;
 }
 
+/*keyboard*/
+
+.Game-keyboard-button::before {
+  position: absolute;
+  content: "";
+  background: #f9c4d2;
+
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.Game-keyboard-button:hover {
+  background: #ffe9e9;
+  transform: translate(0, 0.25em);
+}
+.Game-keyboard-button:hover::before {
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  transform: translate3d(0, 0.5em, -1em);
+}
 
