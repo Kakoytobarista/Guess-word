@@ -182,7 +182,6 @@ keyboardButtons.forEach((button) =>
 );
 
 
-buttonEnter.addEventListener("click", isEnterClicked)
 buttonRules.addEventListener("click", addTrueForRules)
 buttonGenerateLink.addEventListener("click", addTrueForGenerateLink)
 
