@@ -76,14 +76,14 @@ export async function addTrueForRules() {
         if (buttonRules.getAttribute('firstClick') !== 'true') {
             buttonRules.setAttribute('firstClick', 'true')
             buttonGenerateLink.setAttribute('firstClick', 'false')
-            panels.style.opasity = 1;
+            panels.style.opacity = '1';
             bool = false
             break
         }
         if (buttonRules.getAttribute('firstClick') === 'true') {
             buttonRules.setAttribute('firstClick', 'false')
             buttonGenerateLink.setAttribute('firstClick', 'false')
-            panels.style.opasity = 0;
+            panels.style.opacity = '0';
             bool = false
             break
         }
@@ -93,20 +93,22 @@ export async function addTrueForRules() {
     }
 }
 
-export async function addTrueForGenerateLink() {
+
+export async function addTrueForGenerateLink(event) {
+    console.log(event.target)
     let bool = true
     while (bool) {
         if (buttonGenerateLink.getAttribute('firstClick') !== 'true') {
             buttonGenerateLink.setAttribute('firstClick', 'true')
             buttonRules.setAttribute('firstClick', 'false')
-            panels.style.opasity = 1;
+            panels.style.opacity = '1';
             bool = false
             break
         }
         if (buttonGenerateLink.getAttribute('firstClick') === 'true') {
             buttonGenerateLink.setAttribute('firstClick', 'false')
             buttonRules.setAttribute('firstClick', 'false')
-            panels.style.opasity = 0;
+            panels.style.opacity = '0';
             bool = false
             break
         }
@@ -114,3 +116,4 @@ export async function addTrueForGenerateLink() {
         await buttonRules.setAttribute('active', 'false')
     }
 }
+
