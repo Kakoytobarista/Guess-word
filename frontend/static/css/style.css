@@ -253,18 +253,18 @@ h2 {
 .custom-btn {
   width: 130px;
   color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
+  padding: 5px 15px;
   font-family: 'Lato', sans-serif;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
+    font-size: 13px;
   transition: all 0.3s ease;
   position: relative;
   display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
+    border-radius: 5px;
+    box-shadow: inset 1px 1px 1px 0 rgb(255 255 255 / 20%), 1px 1px 1px 0 rgb(0 0 0 / 10%), 2px 2px 2px 0 rgb(0 0 0 / 5%);
+
   outline: none;
     margin-left: 10px;
 }
@@ -327,8 +327,8 @@ h2 {
     box-sizing: border-box;
     padding-left: 20px;
     padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 
 
