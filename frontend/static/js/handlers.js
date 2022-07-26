@@ -7,13 +7,13 @@ export async function addAlert(text) {
         confirmButtonColor: '#944743',
     })
 }
-
-export async function isEnterClicked() {
-    const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
-    if (filledCells.length !== 0) {
-        await addAlert('Fill in all the cells in the row!')
-    }
-}
+//
+// export async function isEnterClicked() {
+//     const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
+//     if (filledCells.length !== 0) {
+//         await addAlert('Fill in all the cells in the row!')
+//     }
+// }
 
 export const decodeFunc = function(encodedWord) {
     let decodedWord = ""

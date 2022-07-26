@@ -4,7 +4,7 @@ import {
   copy,
   addTrueForRules,
   addTrueForGenerateLink,
-  isEnterClicked,
+  // isEnterClicked,
   addAlert
 } from './handlers.js'
 import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
