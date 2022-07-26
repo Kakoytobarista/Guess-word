@@ -2,12 +2,11 @@ import {
   createTextElement,
   getGetParam,
   copy,
-  addTrueForRules,
-  addTrueForGenerateLink,
+  closeOpenBar,
   addAlert
 } from './handlers.js'
 import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
-import {el, input, keyboardButtons, buttonRules, buttonGenerateLink, buttonEnter} from './constants.js'
+import {el, input, keyboardButtons, buttonRules, buttonGenerateLink, buttonsTabBar} from './constants.js'
 
 
 
@@ -39,7 +38,7 @@ const getWord = async function (uuid){
 }
 
 
-const sumbitWord = (cells) => {
+const submitWord = (cells) => {
   let lettersGuessed = 0;
   if (window.rowFilled) {
     window.rowFilled = false;
@@ -141,7 +140,7 @@ const buttonsHandler = (e) => {
     backspaceClick(cells);
   }
   else if (e.target.classList.contains("Game-keyboard-button-enter")) {
-    sumbitWord(cells);
+    submitWord(cells);
   }
   else {
     keyboardLetterClick(cells, e.target.innerText);
@@ -183,7 +182,7 @@ keyboardButtons.forEach((button) =>
 );
 
 
-buttonRules.addEventListener("click", addTrueForRules)
-buttonGenerateLink.addEventListener("click", addTrueForGenerateLink)
+
+buttonsTabBar.forEach(item => {item.addEventListener("click", closeOpenBar)})
 
 document.getElementById('copy').addEventListener('click', copy)

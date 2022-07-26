@@ -7,6 +7,8 @@ export const keyboardButtons = Array.from(
 
 export const buttonRules = document.getElementById('one');
 export const buttonGenerateLink = document.getElementById('two');
+export const buttonsTabBar = document.querySelectorAll('.my-element')
+
 export const panels = document.querySelector('.panels');
 
 export const wordInput = document.getElementById('lname');

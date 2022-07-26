@@ -1,19 +1,13 @@
 import {wordInput, decodeDict, buttonRules, panels, buttonGenerateLink} from "./constants.js";
 
 
-export async function addAlert(text) {
-    await Swal.fire({
+export function addAlert(text) {
+    Swal.fire({
         title: text,
         confirmButtonColor: '#944743',
     })
 }
 
-// export async function isEnterClicked() {
-//     const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
-//     if (filledCells.length !== hardcodedWord.length) {
-//         await addAlert('Fill in all the cells in the row!')
-//     }
-// }
 
 export const decodeFunc = function(encodedWord) {
     let decodedWord = ""
@@ -45,75 +39,58 @@ export const createTextElement = async function(linkText) {
     }
 }
 
-export async function copy() {
-  const copyText = await document.getElementById('input');
+export function copy() {
+  const copyText = document.getElementById('input');
   copyText.select()
   document.execCommand('copy')
 }
 
 
-export async function is_empty() {
-    return !await wordInput.value;
+export function is_empty() {
+    return !wordInput.value;
 }
 
-export async function is_digit() {
-    return await wordInput.value.match(/\d/g)
+export function is_digit() {
+    return wordInput.value.match(/\d/g)
 }
 
 
-export async function onlyLatinCharacters() {
+export function onlyLatinCharacters() {
     return !/^[a-zA-Z]+$/.test(wordInput.value);
 }
 
-export async function is_not_more_then_13_length() {
+export function is_not_more_then_13_length() {
     return wordInput.value.length > 13;
 }
 
-
-export async function addTrueForRules() {
+export function closeOpenBar(event) {
+    let btn_main
+    let btn_less
     let bool = true
     while (bool) {
-        if (buttonRules.getAttribute('firstClick') !== 'true') {
-            buttonRules.setAttribute('firstClick', 'true')
-            buttonGenerateLink.setAttribute('firstClick', 'false')
-            panels.style.opacity = '1';
-            bool = false
-            break
+        if (event.target === buttonRules) {
+            btn_main = buttonRules
+            btn_less =buttonGenerateLink
         }
-        if (buttonRules.getAttribute('firstClick') === 'true') {
-            buttonRules.setAttribute('firstClick', 'false')
-            buttonGenerateLink.setAttribute('firstClick', 'false')
-            panels.style.opacity = '0';
-            bool = false
-            break
+        else {
+            btn_main = buttonGenerateLink
+            btn_less =buttonRules
         }
-
-        await buttonRules.setAttribute('active', 'true')
-        await buttonGenerateLink.setAttribute('active', 'false')
-    }
+            if (btn_main.getAttribute('firstClick') !== 'true') {
+                btn_main.setAttribute('firstClick', 'true')
+                btn_less.setAttribute('firstClick', 'false')
+                panels.style.opacity = '1';
+                bool = false
+                break
+            }
+            if (btn_main.getAttribute('firstClick') === 'true') {
+                btn_main.setAttribute('firstClick', 'false')
+                btn_less.setAttribute('firstClick', 'false')
+                panels.style.opacity = '0';
+                bool = false
+                break
+            }
+            btn_main.setAttribute('active', 'true')
+            btn_less.setAttribute('active', 'false')
+        }
 }
-
-
-export async function addTrueForGenerateLink(event) {
-    console.log(event.target)
-    let bool = true
-    while (bool) {
-        if (buttonGenerateLink.getAttribute('firstClick') !== 'true') {
-            buttonGenerateLink.setAttribute('firstClick', 'true')
-            buttonRules.setAttribute('firstClick', 'false')
-            panels.style.opacity = '1';
-            bool = false
-            break
-        }
-        if (buttonGenerateLink.getAttribute('firstClick') === 'true') {
-            buttonGenerateLink.setAttribute('firstClick', 'false')
-            buttonRules.setAttribute('firstClick', 'false')
-            panels.style.opacity = '0';
-            bool = false
-            break
-        }
-        await buttonGenerateLink.setAttribute('active', 'true')
-        await buttonRules.setAttribute('active', 'false')
-    }
-}
-
