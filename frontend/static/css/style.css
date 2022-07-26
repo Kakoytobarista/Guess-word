@@ -317,6 +317,7 @@ h2 {
 
 .input-field {
     margin-top: 10px;
+    text-align:center;
     width: 100%;
     display: inline-block;
     border: 1px solid #ccc;
@@ -325,10 +326,9 @@ h2 {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding: 2px 20px;
+    outline: 0;
+
 }
 
 
