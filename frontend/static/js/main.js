@@ -4,7 +4,6 @@ import {
   copy,
   addTrueForRules,
   addTrueForGenerateLink,
-  // isEnterClicked,
   addAlert
 } from './handlers.js'
 import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
@@ -50,7 +49,8 @@ const sumbitWord = (cells) => {
         cells[i].classList.add("Game-cells-cell-correct");
         lettersEntered[cells[i].innerText] = "correct";
         lettersGuessed += 1;
-      } else if (
+      }
+      else if (
         window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1
       ) {
         cells[i].classList.add("Game-cells-cell-absent");
@@ -98,6 +98,7 @@ const sumbitWord = (cells) => {
       });
     }
   } else {
+    addAlert('Fill in all the cells in the row!')
   }
 };
 
