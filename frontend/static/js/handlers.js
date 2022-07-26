@@ -1,6 +1,20 @@
 import {wordInput, decodeDict, buttonRules, panels, buttonGenerateLink} from "./constants.js";
 
 
+export async function addAlert(text) {
+    await Swal.fire({
+        title: text,
+        confirmButtonColor: '#944743',
+    })
+}
+
+export async function isEnterClicked() {
+    const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
+    if (filledCells.length !== 0) {
+        await addAlert('Fill in all the cells in the row!')
+    }
+}
+
 export const decodeFunc = function(encodedWord) {
     let decodedWord = ""
     for (let i = 0; i < encodedWord.length; i++) {

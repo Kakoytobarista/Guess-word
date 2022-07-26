@@ -1,35 +1,29 @@
 import {word} from './main.js'
-import {addNewWord, is_digit, is_empty, is_not_more_then_13_length, onlyLatinCharacters} from "./handlers.js";
+import {
+    addAlert, addNewWord,
+    is_digit,
+    is_empty,
+    is_not_more_then_13_length,
+    onlyLatinCharacters
+} from "./handlers.js";
+
 
 export const createLink = async function() {
     if (await is_empty()) {
-        Swal.fire({
-          title: 'You need to write a word!',
-          confirmButtonColor: '#944743',
-    })
+        await addAlert('You need to write a word!')
         return
-
 }
     if (await is_digit()) {
-        Swal.fire({
-          title: 'You can using only letters!',
-          confirmButtonColor: '#944743',
-    })
+        await addAlert('You can using only letters!')
         return
     }
 
     if (await onlyLatinCharacters()){
-        Swal.fire({
-          title: 'You can using only latin letters!',
-          confirmButtonColor: '#944743',
-    })
+        await addAlert('You can using only latin letters!')
         return
     }
     if (await is_not_more_then_13_length()){
-        Swal.fire({
-          title: 'Word can"t be with more then 13 letter!',
-          confirmButtonColor: '#944743',
-    })
+        await addAlert('Word can"t be with more then 13 letter!')
     }
     else {
         const response = await fetch('http://guess-word.onthewifi.com/api/word/', {

@@ -11,6 +11,10 @@ export const panels = document.querySelector('.panels');
 
 export const wordInput = document.getElementById('lname');
 
+export const buttonEnter = document.getElementById('btnEnter');
+
+// export const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
+
 export const decodeDict = {
     "!": "a",
     "@": "b",

@@ -1,6 +1,14 @@
-import {createTextElement, getGetParam, copy, addTrueForRules, addTrueForGenerateLink} from './handlers.js'
+import {
+  createTextElement,
+  getGetParam,
+  copy,
+  addTrueForRules,
+  addTrueForGenerateLink,
+  isEnterClicked,
+  addAlert
+} from './handlers.js'
 import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
-import {el, input, keyboardButtons, buttonRules, buttonGenerateLink} from './constants.js'
+import {el, input, keyboardButtons, buttonRules, buttonGenerateLink, buttonEnter} from './constants.js'
 
 
 
@@ -64,16 +72,10 @@ const sumbitWord = (cells) => {
     }
 
     if (lettersGuessed === window.hardcodedWord.length) {
-    Swal.fire({
-      title: 'You won!',
-      confirmButtonColor: '#944743',
-    })
+      addAlert('You won!');
       window.gameEnded = true;
     } else if (window.currentAttempt === window.attempts) {
-    Swal.fire({
-      title: 'You blew it!',
-      confirmButtonColor: '#944743',
-    })
+      addAlert('You blew it!');
       window.gameEnded = true;
     } else {
       window.currentAttempt += 1;
@@ -124,6 +126,7 @@ const keyboardLetterClick = (cells, letterText) => {
   }
 };
 
+let some = document.querySelectorAll('.Game-cells-cell-entered')
 const buttonsHandler = (e) => {
   if (window.gameEnded) return;
 
@@ -135,12 +138,13 @@ const buttonsHandler = (e) => {
 
   if (e.target.classList.contains("Game-keyboard-button-backspace")) {
     backspaceClick(cells);
-  } else if (e.target.classList.contains("Game-keyboard-button-enter")) {
+  }
+  else if (e.target.classList.contains("Game-keyboard-button-enter")) {
     sumbitWord(cells);
-  } else {
+  }
+  else {
     keyboardLetterClick(cells, e.target.innerText);
   }
-
 };
 
 let startGame;
@@ -178,6 +182,7 @@ keyboardButtons.forEach((button) =>
 );
 
 
+buttonEnter.addEventListener("click", isEnterClicked)
 buttonRules.addEventListener("click", addTrueForRules)
 buttonGenerateLink.addEventListener("click", addTrueForGenerateLink)
 
