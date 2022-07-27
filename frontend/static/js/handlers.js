@@ -1,4 +1,17 @@
-import {wordInput, decodeDict, buttonRules, panels, buttonGenerateLink} from "./constants.js";
+import {
+    wordInput,
+    decodeDict,
+    buttonRules,
+    panels,
+    buttonGenerateLink,
+    input
+} from "./constants.js";
+
+
+
+export const word = buttonGenerateLink.onclick = function() {
+  return input.value
+}
 
 
 export function addAlert(text) {
@@ -21,6 +34,7 @@ export const decodeFunc = function(encodedWord) {
     return decodedWord
 }
 
+
 export const getGetParam = function() {
     const currentUrl = window.location.href
     if (currentUrl.includes("=")) {
@@ -28,9 +42,11 @@ export const getGetParam = function() {
     }
 }
 
+
 export const addNewWord = async function(word) {
   window.hardcodedWord = decodeFunc(word.toLowerCase())
 }
+
 
 export const createTextElement = async function(linkText) {
     if (!document.getElementById('linkTextId') && linkText) {
@@ -38,6 +54,7 @@ export const createTextElement = async function(linkText) {
         input.value = linkText
     }
 }
+
 
 export function copy() {
   const copyText = document.getElementById('input');
@@ -50,6 +67,7 @@ export function is_empty() {
     return !wordInput.value;
 }
 
+
 export function is_digit() {
     return wordInput.value.match(/\d/g)
 }
@@ -59,9 +77,11 @@ export function onlyLatinCharacters() {
     return !/^[a-zA-Z]+$/.test(wordInput.value);
 }
 
+
 export function is_not_more_then_13_length() {
     return wordInput.value.length > 13;
 }
+
 
 export function closeOpenBar(event) {
     let btn_main

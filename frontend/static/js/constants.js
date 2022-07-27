@@ -1,21 +1,17 @@
-export const el = document.getElementById("generate_link");
+export const buttonGenerateLink = document.getElementById("generate_link");
 export const input = document.getElementById('lname');
-
 export const keyboardButtons = Array.from(
     document.querySelectorAll(".Game-keyboard-button")
 );
-
 export const buttonRules = document.getElementById('one');
-export const buttonGenerateLink = document.getElementById('two');
-export const buttonsTabBar = document.querySelectorAll('.my-element')
-
+export const tabGenerateLink = document.getElementById('two');
+export const buttonsTabBar = document.querySelectorAll('.my-element');
 export const panels = document.querySelector('.panels');
-
 export const wordInput = document.getElementById('lname');
+export const buttonCopy = document.getElementById('copy');
+export const Cells = document.querySelector(".Game-cells");
 
-export const buttonEnter = document.getElementById('btnEnter');
-
-// export const filledCells = document.querySelectorAll('.Game-cells-cell-entered')
+export const mainApiUrl = "http://guess-word.onthewifi.com"
 
 export const decodeDict = {
     "!": "a",
