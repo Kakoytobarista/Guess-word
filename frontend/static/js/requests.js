@@ -1,11 +1,16 @@
-import {word} from './main.js'
 import {
     addAlert, addNewWord,
     is_digit,
     is_empty,
     is_not_more_then_13_length,
-    onlyLatinCharacters
+    onlyLatinCharacters,
+    word
 } from "./handlers.js";
+
+import {
+    mainApiUrl
+} from "./constants.js"
+
 
 
 export const createLink = async function() {
@@ -26,7 +31,7 @@ export const createLink = async function() {
         addAlert('Word can"t be with more then 13 letter!')
     }
     else {
-        const response = await fetch('http://guess-word.onthewifi.com/api/word/', {
+        const response = await fetch(`${mainApiUrl}/api/word/`, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
@@ -46,7 +51,7 @@ export const createLink = async function() {
 
 export const getRandomWord = async function() {
   try {
-    let response = await fetch('http://guess-word.onthewifi.com/api/word/random_word/', {
+    let response = await fetch(`${mainApiUrl}/api/word/random_word/`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -62,9 +67,10 @@ export const getRandomWord = async function() {
   }
 }
 
+
 export const getConcreteWord = async function(uuid) {
   try {
-    const response = await fetch('http://guess-word.onthewifi.com/api/word?' + uuid, {
+    const response = await fetch(`${mainApiUrl}/api/word?${uuid}`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',

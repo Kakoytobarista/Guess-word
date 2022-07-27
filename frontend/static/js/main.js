@@ -5,9 +5,20 @@ import {
   closeOpenBar,
   addAlert
 } from './handlers.js'
-import {createLink, getConcreteWord, getRandomWord} from "./requests.js";
-import {el, input, keyboardButtons, buttonRules, buttonGenerateLink, buttonsTabBar} from './constants.js'
 
+import {
+  createLink,
+  getConcreteWord,
+  getRandomWord
+}from "./requests.js";
+
+import {
+  buttonGenerateLink,
+  keyboardButtons,
+  buttonCopy,
+  buttonsTabBar,
+  Cells
+}from './constants.js'
 
 
 
@@ -48,21 +59,14 @@ const submitWord = (cells) => {
         cells[i].classList.add("Game-cells-cell-correct");
         lettersEntered[cells[i].innerText] = "correct";
         lettersGuessed += 1;
-      }
-      else if (
-        window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1
-      ) {
+      } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1) {
         cells[i].classList.add("Game-cells-cell-absent");
-        if (
-          lettersEntered[cells[i].innerText] !== "correct" &&
-          lettersEntered[cells[i].innerText] !== "elsewhere"
-        ) {
+        if (lettersEntered[cells[i].innerText] !== "correct" &&
+            lettersEntered[cells[i].innerText] !== "elsewhere") {
           lettersEntered[cells[i].innerText] = "absent"
         }
-      } else if (
-        window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
-        cells[i].innerText !== window.hardcodedWord[i]
-      ) {
+      } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
+          cells[i].innerText !== window.hardcodedWord[i]) {
         cells[i].classList.add("Game-cells-cell-elsewhere");
         if (lettersEntered[cells[i].innerText] !== "correct") {
           lettersEntered[cells[i].innerText] = "elsewhere";
@@ -101,6 +105,7 @@ const submitWord = (cells) => {
   }
 };
 
+
 const backspaceClick = (cells) => {
   cells = cells.reverse();
   for (let i = 0; i < cells.length; i += 1) {
@@ -112,6 +117,7 @@ const backspaceClick = (cells) => {
     }
   }
 };
+
 
 const keyboardLetterClick = (cells, letterText) => {
   for (let i = 0; i < cells.length; i += 1) {
@@ -126,9 +132,10 @@ const keyboardLetterClick = (cells, letterText) => {
   }
 };
 
-let some = document.querySelectorAll('.Game-cells-cell-entered')
-const buttonsHandler = (e) => {
-  if (window.gameEnded) return;
+
+const buttonsHandler = (event) => {
+  if (window.gameEnded)
+    return;
 
   const currentRow = document.querySelector(
     `.Game-cells-row-${window.currentAttempt}`
@@ -136,16 +143,17 @@ const buttonsHandler = (e) => {
 
   let cells = Array.from(currentRow.querySelectorAll(".Game-cells-cell"));
 
-  if (e.target.classList.contains("Game-keyboard-button-backspace")) {
+  if (event.target.classList.contains("Game-keyboard-button-backspace")) {
     backspaceClick(cells);
   }
-  else if (e.target.classList.contains("Game-keyboard-button-enter")) {
+  else if (event.target.classList.contains("Game-keyboard-button-enter")) {
     submitWord(cells);
   }
   else {
-    keyboardLetterClick(cells, e.target.innerText);
+    keyboardLetterClick(cells, event.target.innerText);
   }
 };
+
 
 let startGame;
 (startGame = async () => {
@@ -154,7 +162,6 @@ let startGame;
   window.lettersEntered = {};
   await getWord(getGetParam())
 
-  const Cells = document.querySelector(".Game-cells");
   for (let i = 1; i <= window.attempts; i += 1) {
     const newRow = document.createElement("div");
     newRow.className = `Game-cells-row Game-cells-row-${i}`;
@@ -171,18 +178,13 @@ let startGame;
 
 
 // Event listeners
-export const word = el.onclick = function() {
-  return input.value
-}
-
-el.addEventListener("click", createElementWithLink)
 
 keyboardButtons.forEach((button) =>
   button.addEventListener("click", buttonsHandler)
 );
 
+buttonsTabBar.forEach(item =>
+{item.addEventListener("click", closeOpenBar)})
 
-
-buttonsTabBar.forEach(item => {item.addEventListener("click", closeOpenBar)})
-
-document.getElementById('copy').addEventListener('click', copy)
+buttonGenerateLink.addEventListener("click", createElementWithLink)
+buttonCopy.addEventListener('click', copy)
