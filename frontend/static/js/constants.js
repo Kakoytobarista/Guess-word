@@ -4,7 +4,6 @@ export const keyboardButtons = Array.from(
     document.querySelectorAll(".Game-keyboard-button")
 );
 export const buttonRules = document.getElementById('one');
-export const tabGenerateLink = document.getElementById('two');
 export const buttonsTabBar = document.querySelectorAll('.my-element');
 export const panels = document.querySelector('.panels');
 export const wordInput = document.getElementById('lname');
