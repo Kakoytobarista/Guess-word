@@ -4,10 +4,11 @@ import {
     is_empty,
     is_not_more_then_13_length,
     onlyLatinCharacters,
-    word
+    word,
 } from "./handlers.js";
 
 import {
+    headersParams,
     mainApiUrl
 } from "./constants.js"
 
@@ -33,10 +34,7 @@ export const createLink = async function() {
     else {
         const response = await fetch(`${mainApiUrl}/api/word/`, {
         method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+        headers: headersParams,
         body: JSON.stringify({
               'word': word()
             }
@@ -53,10 +51,7 @@ export const getRandomWord = async function() {
   try {
     let response = await fetch(`${mainApiUrl}/api/word/random_word/`, {
           method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
+          headers: headersParams
         }
     )
     const data = await response.json();
@@ -72,10 +67,7 @@ export const getConcreteWord = async function(uuid) {
   try {
     const response = await fetch(`${mainApiUrl}/api/word?${uuid}`, {
           method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          }
+          headers: headersParams
         }
     )
     const data = await response.json();

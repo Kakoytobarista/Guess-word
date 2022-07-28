@@ -13,6 +13,11 @@ export const Cells = document.querySelector(".Game-cells");
 
 export const mainApiUrl = "http://guess-word.onthewifi.com"
 
+export const headersParams = {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+
 export const decodeDict = {
     "!": "a",
     "@": "b",
