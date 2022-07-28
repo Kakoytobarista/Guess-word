@@ -22,19 +22,43 @@ import {
 
 
 
-const createElementWithLink = async function () {
-  try {
-    let linkText;
-    linkText = await createLink(window.hardcodedWord)
-    await createTextElement(linkText)
+class TabBar {
+  linkText = ""
 
-  } catch (e) {
-    console.error(e)
+  async createElementWithLink() {
+  // This method responsible for creating html with link //
+    try {
+      this.linkText = await createLink(window.hardcodedWord)
+      await createTextElement(this.linkText)
+
+    } catch (e) {
+      console.error(e)
+    }
+  }
+
+  startGenerateLink() {
+  // This method responsible for open close tab bar //
+  // and copy generated link from input on panel "Generate Link //
+    buttonsTabBar.forEach(item => {
+      item.addEventListener("click", closeOpenBar)
+    })
+
+    buttonGenerateLink.addEventListener("click", this.createElementWithLink)
+    buttonCopy.addEventListener('click', copy)
   }
 }
 
+class Game {
 
-const getWord = async function (uuid){
+  constructor(attempts) {
+    this.attempts = attempts;
+    this.currentAttempt = 1;
+    this.lettersEntered = {};
+  }
+
+  async getWord (uuid){
+  // This method helps yo getting random //
+  // by uuid word or special word //
     try {
       if (!uuid) {
         await getRandomWord()
@@ -48,65 +72,8 @@ const getWord = async function (uuid){
     }
 }
 
-
-const submitWord = (cells) => {
-  let lettersGuessed = 0;
-  if (window.rowFilled) {
-    window.rowFilled = false;
-    for (let i = 0; i < cells.length; i += 1) {
-      cells[i].classList.remove("Game-cells-cell-entered");
-      if (cells[i].innerText.toLowerCase() === window.hardcodedWord[i]) {
-        cells[i].classList.add("Game-cells-cell-correct");
-        lettersEntered[cells[i].innerText] = "correct";
-        lettersGuessed += 1;
-      } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1) {
-        cells[i].classList.add("Game-cells-cell-absent");
-        if (lettersEntered[cells[i].innerText] !== "correct" &&
-            lettersEntered[cells[i].innerText] !== "elsewhere") {
-          lettersEntered[cells[i].innerText] = "absent"
-        }
-      } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
-          cells[i].innerText !== window.hardcodedWord[i]) {
-        cells[i].classList.add("Game-cells-cell-elsewhere");
-        if (lettersEntered[cells[i].innerText] !== "correct") {
-          lettersEntered[cells[i].innerText] = "elsewhere";
-        }
-      }
-    }
-
-    if (lettersGuessed === window.hardcodedWord.length) {
-      addAlert('You won!');
-      window.gameEnded = true;
-    } else if (window.currentAttempt === window.attempts) {
-      addAlert('You blew it!');
-      window.gameEnded = true;
-    } else {
-      window.currentAttempt += 1;
-      Object.keys(lettersEntered).forEach((letter) => {
-        let keyboardButtons = Array.from(
-            document.querySelectorAll(".Game-keyboard-button")
-        );
-
-        keyboardButtons.forEach((keyboardButton) => {
-          if (
-            keyboardButton.innerText.toLowerCase() === letter.toLocaleLowerCase()
-          ) {
-            keyboardButton.classList.add(
-              `Game-keyboard-button-${lettersEntered[letter]}`
-            );
-          }
-        document.querySelectorAll('.Game-keyboard-button-absent')
-        .forEach((function(x){ x.setAttribute("style","pointer-events: none;");}))
-        });
-      });
-    }
-  } else {
-    addAlert('Fill in all the cells in the row!')
-  }
-};
-
-
-const backspaceClick = (cells) => {
+  backspaceClick(cells) {
+  // This method responsible for removing letters //
   cells = cells.reverse();
   for (let i = 0; i < cells.length; i += 1) {
     if (cells[i].innerText) {
@@ -116,10 +83,10 @@ const backspaceClick = (cells) => {
       break;
     }
   }
-};
+}
 
-
-const keyboardLetterClick = (cells, letterText) => {
+  keyboardLetterClick(cells, letterText) {
+  // This method responsible for typing letter on keyboard //
   for (let i = 0; i < cells.length; i += 1) {
     if (!cells[i].innerText) {
       cells[i].innerText = letterText;
@@ -130,61 +97,115 @@ const keyboardLetterClick = (cells, letterText) => {
       break;
     }
   }
-};
+}
 
+  async submitWord(cells) {
+    // This method with main logic game //
+    // changing color of letters //
+    // (if they true or not) and //
+    let lettersGuessed = 0;
+    if (window.rowFilled) {
+      window.rowFilled = false;
+      for (let i = 0; i < cells.length; i += 1) {
+        cells[i].classList.remove("Game-cells-cell-entered");
+        if (cells[i].innerText.toLowerCase() === window.hardcodedWord[i]) {
+          cells[i].classList.add("Game-cells-cell-correct");
+          this.lettersEntered[cells[i].innerText] = "correct";
+          lettersGuessed += 1;
+        } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) === -1) {
+          cells[i].classList.add("Game-cells-cell-absent");
+          if (this.lettersEntered[cells[i].innerText] !== "correct" &&
+              this.lettersEntered[cells[i].innerText] !== "elsewhere") {
+            this.lettersEntered[cells[i].innerText] = "absent"
+          }
+        } else if (window.hardcodedWord.indexOf(cells[i].innerText.toLowerCase()) > -1 &&
+            cells[i].innerText !== window.hardcodedWord[i]) {
+          cells[i].classList.add("Game-cells-cell-elsewhere");
+          if (this.lettersEntered[cells[i].innerText] !== "correct") {
+            this.lettersEntered[cells[i].innerText] = "elsewhere";
+          }
+        }
+      }
+      if (lettersGuessed === window.hardcodedWord.length) {
+        addAlert('You won!');
+        window.gameEnded = true;
+      } else if (this.currentAttempt === this.attempts) {
+        addAlert('You blew it!');
+        window.gameEnded = true;
+      } else {
+        this.currentAttempt += 1;
+        Object.keys(this.lettersEntered).forEach((letter) => {
+          let keyboardButtons = Array.from(
+              document.querySelectorAll(".Game-keyboard-button")
+          );
 
-const buttonsHandler = (event) => {
-  if (window.gameEnded)
-    return;
-
-  const currentRow = document.querySelector(
-    `.Game-cells-row-${window.currentAttempt}`
-  );
-
-  let cells = Array.from(currentRow.querySelectorAll(".Game-cells-cell"));
-
-  if (event.target.classList.contains("Game-keyboard-button-backspace")) {
-    backspaceClick(cells);
-  }
-  else if (event.target.classList.contains("Game-keyboard-button-enter")) {
-    submitWord(cells);
-  }
-  else {
-    keyboardLetterClick(cells, event.target.innerText);
-  }
-};
-
-
-let startGame;
-(startGame = async () => {
-  window.currentAttempt = 1;
-  window.attempts = 5;
-  window.lettersEntered = {};
-  await getWord(getGetParam())
-
-  for (let i = 1; i <= window.attempts; i += 1) {
-    const newRow = document.createElement("div");
-    newRow.className = `Game-cells-row Game-cells-row-${i}`;
-
-    for (let j = 1; j <= window.hardcodedWord.length; j += 1) {
-      const newCell = document.createElement("div");
-      newCell.className = `Game-cells-cell Game-cells-cell-${j}`;
-      newRow.appendChild(newCell);
+          keyboardButtons.forEach((keyboardButton) => {
+            if (
+                keyboardButton.innerText.toLowerCase() === letter.toLocaleLowerCase()
+            ) {
+              keyboardButton.classList.add(
+                  `Game-keyboard-button-${this.lettersEntered[letter]}`
+              );
+            }
+            document.querySelectorAll('.Game-keyboard-button-absent')
+                .forEach((function (x) {
+                  x.setAttribute("style", "pointer-events: none;");
+                }))
+          });
+        });
+      }
+    } else {
+      addAlert('Fill in all the cells in the row!')
     }
-    Cells.appendChild(newRow);
   }
 
-})();
+
+  async createGameTable() {
+    // This method create a table for //
+    // game with rows and cells //
+    await this.getWord(getGetParam())
+    for (let i = 1; i <= this.attempts; i += 1) {
+      const newRow = document.createElement("div");
+      newRow.className = `Game-cells-row Game-cells-row-${i}`;
+
+      for (let j = 1; j <= window.hardcodedWord.length; j += 1) {
+        const newCell = document.createElement("div");
+        newCell.className = `Game-cells-cell Game-cells-cell-${j}`;
+        newRow.appendChild(newCell);
+      }
+      Cells.appendChild(newRow);
+    }
+  }
+
+  async buttonsHandler(event) {
+    // This method give functional for delete approve and  //
+    // type any available letters.  //
+    if (window.gameEnded)
+      return;
+    const currentRow = document.querySelector(
+        `.Game-cells-row-${this.currentAttempt}`
+    );
+    let cells = Array.from(currentRow.querySelectorAll(".Game-cells-cell"));
+    if (event.target.classList.contains("Game-keyboard-button-backspace")) {
+      this.backspaceClick(cells);
+    } else if (event.target.classList.contains("Game-keyboard-button-enter")) {
+      await this.submitWord(cells);
+    } else {
+      this.keyboardLetterClick(cells, event.target.innerText);
+    }
+  }
 
 
-// Event listeners
+  async startGame() {
+    // This method for start working game //
+    await this.createGameTable()
+    await keyboardButtons.forEach((button) =>
+        button.addEventListener("click", (event)=> this.buttonsHandler(event))
+    );
+  }
+  }
 
-keyboardButtons.forEach((button) =>
-  button.addEventListener("click", buttonsHandler)
-);
-
-buttonsTabBar.forEach(item =>
-{item.addEventListener("click", closeOpenBar)})
-
-buttonGenerateLink.addEventListener("click", createElementWithLink)
-buttonCopy.addEventListener('click', copy)
+const game = new Game(5)
+await game.startGame()
+const tabBar = new TabBar()
+await tabBar.startGenerateLink()
