@@ -71,7 +71,13 @@ export const getConcreteWord = async function(uuid) {
         }
     )
     const data = await response.json();
-    await addNewWord(data['results'][0]['word'])
+    if (! await data['results'][0]['word']) {
+        await getRandomWord()
+
+    }
+    else {
+        await addNewWord(data['results'][0]['word'])
+    }
   }
   catch(e) {
     console.log(e)
