@@ -64,22 +64,16 @@ export const getRandomWord = async function() {
 
 
 export const getConcreteWord = async function(uuid) {
-  try {
-    const response = await fetch(`${mainApiUrl}/api/word?${uuid}`, {
-          method: 'GET',
-          headers: headersParams
-        }
-    )
-    const data = await response.json();
-    if (! await data['results'][0]['word']) {
-        await getRandomWord()
-
-    }
-    else {
+    try {
+        const response = await fetch(`${mainApiUrl}/api/word?${uuid}`, {
+                method: 'GET',
+                headers: headersParams
+            }
+        )
+        const data = await response.json();
         await addNewWord(data['results'][0]['word'])
+    } catch (e) {
+        await getRandomWord()
     }
-  }
-  catch(e) {
-    console.log(e)
-  }
 }
+
