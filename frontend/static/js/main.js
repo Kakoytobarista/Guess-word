@@ -28,7 +28,7 @@ class TabBar {
   async createElementWithLink() {
   // This method responsible for creating html with link //
     try {
-      this.linkText = await createLink(window.hardcodedWord)
+      this.linkText = await createLink()
       await createTextElement(this.linkText)
 
     } catch (e) {
