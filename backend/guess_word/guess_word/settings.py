@@ -15,8 +15,8 @@ SECRET_KEY = os.getenv('DJANGO_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['51.250.13.153', '127.0.0.1', 'localhost', '51.250.94.71', 'guess-word.onthewifi.com',
-                 '51.250.13.153:443']
+ALLOWED_HOSTS = ['143.110.153.168', '127.0.0.1', 'localhost', '51.250.94.71', 'aslanrdl.ddns.net',
+                 '143.110.153.168:443']
 
 
 sentry_sdk.init(
@@ -61,8 +61,8 @@ CORS_ORIGIN_ALLOW_ALL=True
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
-    'http://guess-word.onthewifi.com',
-    'http://51.250.94.71',
+    'http://aslanrdl.ddns.net',
+    'http://143.110.153.168',
 ]
 
 
