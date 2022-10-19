@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.getenv('DJANGO_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['143.110.153.168', '127.0.0.1', 'localhost', '51.250.94.71', 'aslanrdl.ddns.net',
                  '143.110.153.168:443']
