@@ -10,7 +10,7 @@ export const wordInput = document.getElementById('lname');
 export const buttonCopy = document.getElementById('copy');
 export const Cells = document.querySelector(".Game-cells");
 
-export const mainApiUrl = "http://guess-word.onthewifi.com"
+export const mainApiUrl = "http://aslanrdl.ddns.net"
 
 export const headersParams = {
           'Accept': 'application/json',
