@@ -1,7 +1,9 @@
 # Guess-Word (Aslanrdl)
 ![example workflow](https://github.com/KakoytoBarista/Guess-Word/actions/workflows/django.yml/badge.svg)
-### http://guess-word.onthewifi.com/
 
+<br> Link on host: http://aslanrdl.ddns.net/
+
+___
 GuessWord it's web application with interaction gameplay for trying guess word. 
 You have 5 attempts for guessing hidden word.
 
