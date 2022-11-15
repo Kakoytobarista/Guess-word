@@ -44,7 +44,7 @@ export const getGetParam = function() {
 
 
 export const addNewWord = async function(word) {
-  window.hardcodedWrd = decodeFunc(word.toLowerCase())
+  window.hardcodedWord = decodeFunc(word.toLowerCase())
 }
 
 
