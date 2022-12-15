@@ -21,7 +21,6 @@ class WordViewSet(viewsets.ModelViewSet):
     filter_backends = [DjangoFilterBackend, ]
     filterset_fields = ['word', 'uuid']
 
-
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(8))
     @method_decorator(csrf_exempt, name='dispatch')
