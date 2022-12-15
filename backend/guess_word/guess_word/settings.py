@@ -17,8 +17,8 @@ SECRET_KEY = os.getenv('DJANGO_KEY',
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['143.110.153.168', '127.0.0.1', 'localhost', '51.250.94.71', 'aslanrdl.ddns.net',
-                 '143.110.153.168:443']
+ALLOWED_HOSTS = ['46.101.148.62', '127.0.0.1', 'localhost', '51.250.94.71', 'aslanrdl.ddns.net',
+                 '46.101.148.62:443']
 
 
 sentry_sdk.init(
@@ -62,7 +62,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
     'http://aslanrdl.ddns.net',
-    'http://143.110.153.168',
+    'http://46.101.148.62',
 ]
 
 
