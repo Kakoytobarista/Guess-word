@@ -15,15 +15,16 @@ from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 
-@method_decorator(csrf_exempt, name='dispatch')
 class WordViewSet(viewsets.ModelViewSet):
     queryset = Word.objects.all()
     serializer_class = WordSerializers
     filter_backends = [DjangoFilterBackend, ]
     filterset_fields = ['word', 'uuid']
 
+
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(8))
+    @method_decorator(csrf_exempt, name='dispatch')
     @action(methods=['get'],
             detail=False, )
     def random_word(self, *args):
