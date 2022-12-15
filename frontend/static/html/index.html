@@ -41,6 +41,7 @@
       <div class="panel-title">
           <div id="modal" class="modal">
               <p class="text">Write word</p>
+              {% csrf_token %}
               <input class="input-field" type="text" id="lname" name="lname"><br>
               <input class="custom-btn btn-16" id="generate_link" type="submit">
               <input class="input-field" id="input" type="text" readonly="false"/>
