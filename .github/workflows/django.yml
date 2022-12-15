@@ -31,7 +31,6 @@ jobs:
     - name: Run Tests
       run: |
         cd backend/guess_word
-        python manage.py test tests
 
     - name: Test with flake8 and django tests
       run: |
