@@ -25,6 +25,9 @@ services:
     restart: always
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+
+      - /etc/letsencrypt/:/etc/letsencrypt
+
       - ../frontend:/usr/share/nginx/
       - static_value:/var/html/static/
     depends_on:
