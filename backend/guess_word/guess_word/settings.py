@@ -59,29 +59,29 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL=True
-CORS_ORIGIN_WHITELIST = [
-    'http://localhost:8000',
-    'http://127.0.0.1:8000',
-    'http://aslanrdl.ddns.net',
-    'http://46.101.148.62',
-]
-
-
-CORS_ALLOW_HEADERS = default_headers + (
-    'Access-Control-Allow-Headers',
-    'Access-Control-Allow-Credentials',
-    'Access-Control-Allow-Origin',
-)
-
-CORS_ALLOW_METHODS = [
-    "DELETE",
-    "GET",
-    "OPTIONS",
-    "PATCH",
-    "POST",
-    "PUT",
-]
+# CORS_ORIGIN_ALLOW_ALL=True
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8000',
+#     'http://127.0.0.1:8000',
+#     'http://aslanrdl.ddns.net',
+#     'http://46.101.148.62',
+# ]
+#
+#
+# CORS_ALLOW_HEADERS = default_headers + (
+#     'Access-Control-Allow-Headers',
+#     'Access-Control-Allow-Credentials',
+#     'Access-Control-Allow-Origin',
+# )
+#
+# CORS_ALLOW_METHODS = [
+#     "DELETE",
+#     "GET",
+#     "OPTIONS",
+#     "PATCH",
+#     "POST",
+#     "PUT",
+# ]
 
 
 ROOT_URLCONF = 'guess_word.urls'
