@@ -1,7 +1,6 @@
 import os
 import sys
 
-from corsheaders.defaults import default_headers
 from pathlib import Path
 from dotenv import load_dotenv
 import sentry_sdk
@@ -12,13 +11,11 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-SECRET_KEY = os.getenv('DJANGO_KEY',
-                       default='django-insecure-t2@ja*oz@u$nw(7b)n*$5a8-m%am+7ll3ngqu95b4qy$&naqeb')
+SECRET_KEY = os.getenv('DJANGO_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['46.101.148.62', '127.0.0.1', 'localhost', '51.250.94.71', 'aslanrdl.ddns.net',
-                 '46.101.148.62:443']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 
 
 sentry_sdk.init(
@@ -28,7 +25,6 @@ sentry_sdk.init(
     ],
 
     traces_sample_rate=1.0,
-
     send_default_pii=True
 )
 
@@ -44,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'rest_framework',
+    'drf_yasg',
     'api.apps.ApiConfig',
     'guess_app.apps.GuessAppConfig',
 ]
@@ -64,31 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-# CORS_ORIGIN_ALLOW_ALL=True
-# CORS_ORIGIN_WHITELIST = [
-#     'http://localhost:8000',
-#     'http://127.0.0.1:8000',
-#     'http://aslanrdl.ddns.net',
-#     'http://46.101.148.62',
-# ]
-#
-#
-# CORS_ALLOW_HEADERS = default_headers + (
-#     'Access-Control-Allow-Headers',
-#     'Access-Control-Allow-Credentials',
-#     'Access-Control-Allow-Origin',
-# )
-#
-# CORS_ALLOW_METHODS = [
-#     "DELETE",
-#     "GET",
-#     "OPTIONS",
-#     "PATCH",
-#     "POST",
-#     "PUT",
-# ]
-
 
 ROOT_URLCONF = 'guess_word.urls'
 
