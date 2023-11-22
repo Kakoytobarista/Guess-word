@@ -1,3 +1,5 @@
+from typing import Any, List
+
 import random
 
 from django_filters.rest_framework import DjangoFilterBackend
@@ -17,17 +19,26 @@ from django.views.decorators.csrf import csrf_exempt
 
 @method_decorator(csrf_exempt, name='dispatch')
 class WordViewSet(viewsets.ModelViewSet):
-    queryset = Word.objects.all()
-    serializer_class = WordSerializers
-    filter_backends = [DjangoFilterBackend, ]
-    filterset_fields = ['word', 'uuid']
+    queryset: List[Word] = Word.objects.all()
+    serializer_class: Any = WordSerializers
+    filter_backends: List[Any] = [DjangoFilterBackend, ]
+    filterset_fields: List[str] = ['word', 'uuid']
 
     @method_decorator(vary_on_cookie)
     @method_decorator(cache_page(8))
-    @method_decorator(csrf_exempt, name='dispatch')
-    @action(methods=['get'],
-            detail=False, )
-    def random_word(self, *args):
-        """Method for getting random word"""
-        random_word = str((random.choice(Word.objects.all())))
+    @action(
+        methods=['get'],
+        detail=False,
+    )
+    def random_word(self, *args: Any) -> Response:
+        """
+        Method for getting a random word.
+
+        Parameters:
+        - args: Additional arguments.
+
+        Returns:
+        - Response: Response object containing the random word.
+        """
+        random_word: str = str(random.choice(Word.objects.all()))
         return Response(random_word)
