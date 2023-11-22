@@ -1,6 +1,7 @@
 asgiref==3.5.2
 async-timeout==4.0.2
 certifi==2022.6.15
+cffi==1.16.0
 Deprecated==1.2.13
 Django==4.0.6
 django-cors-headers==3.13.0
@@ -19,6 +20,7 @@ mccabe==0.7.0
 packaging==21.3
 psycopg2-binary==2.9.9
 pycodestyle==2.11.1
+pycparser==2.21
 pyflakes==3.1.0
 pyparsing==3.0.9
 python-dotenv==0.20.0

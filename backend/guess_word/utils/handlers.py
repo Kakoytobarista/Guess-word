@@ -1,35 +1,12 @@
-class DecodeEncodeObject(object):
-    """Class for decoding string"""
-    def __init__(self):
-        self.first_letter = 0
-        self.last_letter = -1
-        self.encode_dict = {
-            "a": "!",
-            "b": "@",
-            "c": "#",
-            "d": "$",
-            "e": "%",
-            "f": "^",
-            "g": "&",
-            "h": "*",
-            "i": "(",
-            "j": ")",
-            "k": "-",
-            "l": "+",
-            "m": "_",
-            "n": ":",
-            "o": ",",
-            "p": "{",
-            "q": "}",
-            "s": "[",
-            "t": "]",
-            "v": "|",
-            "w": "~",
-            "x": "<",
-            "y": ">",
-            "z": "/"
-        }
+from dotenv import load_dotenv
 
-    def encode(self, word: str) -> str:
-        """Function for encode word"""
-        return "".join([self.encode_dict.get(i) or i for i in word])
+load_dotenv()
+
+
+class WordEncodingUtility:
+    @staticmethod
+    def encode(word: str) -> str:
+        encoded_text = ''
+        for char in word:
+            encoded_text += str(ord(char)) + ' '
+        return encoded_text.strip()

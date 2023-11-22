@@ -309,50 +309,50 @@
   },
   {
     "model": "guess_app.word",
-    "pk": 1,
+    "pk": 15,
     "fields": {
-      "word": ">%++,~",
-      "uuid": "03aa06d0-cf64-4158-8df4-6f6c39a60c30"
+      "word": "121 101 108 108 111 119",
+      "uuid": "6932c8b1-24b8-43e7-b248-f41ead06aba4"
     }
   },
   {
     "model": "guess_app.word",
-    "pk": 2,
+    "pk": 16,
     "fields": {
-      "word": ",{%:!(",
-      "uuid": "2fa2b353-906b-4945-ab72-6f94810d8285"
+      "word": "111 112 101 110 97 105",
+      "uuid": "8c058450-3c47-4f46-b0dd-5524f7baa0a6"
     }
   },
   {
     "model": "guess_app.word",
-    "pk": 3,
+    "pk": 17,
     "fields": {
-      "word": ",{%:!(",
-      "uuid": "1b2b1110-50de-41c4-bd03-8982b2e969e1"
+      "word": "98 101 97 114",
+      "uuid": "a6f6ed83-5841-4863-82b4-192bc3d3aa2a"
     }
   },
   {
     "model": "guess_app.word",
-    "pk": 4,
+    "pk": 18,
     "fields": {
-      "word": "!:(_!+",
-      "uuid": "75ac944d-4b37-4b2b-8f86-11813f9f0315"
+      "word": "98 101 101 115",
+      "uuid": "2d5ad28a-64b8-463f-9d22-d37da9b9d614"
     }
   },
   {
     "model": "guess_app.word",
-    "pk": 5,
+    "pk": 19,
     "fields": {
-      "word": "@%!r",
-      "uuid": "0aff03d3-90fe-4cd3-95f5-c96c660ca29d"
+      "word": "103 117 101 115 115",
+      "uuid": "94674e00-c68d-408b-ab19-c6dbe09a54eb"
     }
   },
   {
     "model": "guess_app.word",
-    "pk": 6,
+    "pk": 20,
     "fields": {
-      "word": "+(:-%$(:",
-      "uuid": "04ae3036-2587-45c7-a76f-74a82ad5bc62"
+      "word": "97 115 108 97 110",
+      "uuid": "43a5783f-128a-4321-b0b8-882bf7f44069"
     }
   }
 ]

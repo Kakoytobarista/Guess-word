@@ -1,12 +1,4 @@
-import {
-    wordInput,
-    decodeDict,
-    buttonRules,
-    panels,
-    buttonGenerateLink,
-    input
-} from "./constants.js";
-
+import {buttonGenerateLink, buttonRules, input, panels, wordInput} from "./constants.js";
 
 
 export const word = buttonGenerateLink.onclick = function() {
@@ -22,18 +14,17 @@ export function addAlert(text) {
 }
 
 
-export const decodeFunc = function(encodedWord) {
-    let decodedWord = ""
-    for (let i = 0; i < encodedWord.length; i++) {
-        if (encodedWord[i] in decodeDict) {
-            decodedWord += decodeDict[encodedWord[i]]
-        } else {
-            decodedWord += encodedWord[i]
-        }
+function decodeFunc(encodedString) {
+    const encodedChars = encodedString.split(' ');
+    console.log(encodedChars)
+    let decodedText = '';
+    for (let i = 0; i < encodedChars.length; i++) {
+        const charCode = parseInt(encodedChars[i]);
+        decodedText += String.fromCharCode(charCode);
+        console.log(decodedText)
     }
-    return decodedWord
+    return decodedText;
 }
-
 
 export const getGetParam = function() {
     const currentUrl = window.location.href
