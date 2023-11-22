@@ -10,7 +10,7 @@ export const wordInput = document.getElementById('lname');
 export const buttonCopy = document.getElementById('copy');
 export const Cells = document.querySelector(".Game-cells");
 
-export const mainApiUrl = "https://127.0.0.1"
+export const mainApiUrl = "http://127.0.0.1:8000"
 
 export const headersParams = {
           'Accept': 'application/json',

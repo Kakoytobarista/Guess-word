@@ -61,6 +61,7 @@ jobs:
           tags: heyaslan/guess_word:v1.1.3
 
   deploy:
+    if: false
     runs-on: ubuntu-latest
     needs: build_and_push_to_docker_hub
 

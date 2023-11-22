@@ -26,7 +26,6 @@ class TabBar {
   linkText = ""
 
   async createElementWithLink() {
-  // This method responsible for creating html with link //
     try {
       this.linkText = await createLink(window.hardcodedWord)
       await createTextElement(this.linkText)
@@ -37,8 +36,6 @@ class TabBar {
   }
 
   startGenerateLink() {
-  // This method responsible for open close tab bar //
-  // and copy generated link from input on panel "Generate Link //
     buttonsTabBar.forEach(item => {
       item.addEventListener("click", closeOpenBar)
     })
@@ -57,8 +54,6 @@ class Game {
   }
 
   async getWord (uuid){
-  // This method helps yo getting random //
-  // by uuid word or special word //
     try {
       if (!uuid) {
         await getRandomWord()
@@ -101,8 +96,6 @@ class Game {
 
   async submitWord(cells) {
     // This method with main logic game //
-    // changing color of letters //
-    // (if they true or not) and //
     let lettersGuessed = 0;
     if (window.rowFilled) {
       window.rowFilled = false;
