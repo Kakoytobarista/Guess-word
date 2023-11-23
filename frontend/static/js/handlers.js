@@ -16,12 +16,10 @@ export function addAlert(text) {
 
 function decodeFunc(encodedString) {
     const encodedChars = encodedString.split(' ');
-    console.log(encodedChars)
     let decodedText = '';
     for (let i = 0; i < encodedChars.length; i++) {
         const charCode = parseInt(encodedChars[i]);
         decodedText += String.fromCharCode(charCode);
-        console.log(decodedText)
     }
     return decodedText;
 }
