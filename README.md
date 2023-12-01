@@ -32,15 +32,12 @@ GuessWord is a web application that provides an interactive gameplay experience 
 
 For a detailed plan, refer to the Miro board: [Work Plan Miro Board](https://miro.com/app/board/uXjVOml8KrQ=/)
 
-### Viewing the Web Application:
-
-Visit [Guess-Word Web App](http://guess-word.onthewifi.com/) to experience the gameplay.
 
 ## Getting Started:
 
 1. **Clone the Repository:**
     ```bash
-    git clone <repository_url>
+    git clone https://github.com/Kakoytobarista/Guess-word.git
     ```
 
 2. **Set Permissions:**
