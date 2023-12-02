@@ -2,9 +2,6 @@
 ![example workflow](https://github.com/KakoytoBarista/Guess-Word/actions/workflows/django.yml/badge.svg)
 
 <br>
-
-**Hosted Link:** [Guess-Word Web Application](http://aslanrdl.ddns.net/)
-
 ---
 
 GuessWord is a web application that provides an interactive gameplay experience for guessing words. Players have 5 attempts to guess the hidden word.
@@ -40,23 +37,33 @@ For a detailed plan, refer to the Miro board: [Work Plan Miro Board](https://mir
     git clone https://github.com/Kakoytobarista/Guess-word.git
     ```
 
-2. **Set Permissions:**
+2. **Go to infra direcory:**
+    ```bash
+    cd infra
+    ```
+
+3. **Set Permissions:**
     ```bash
     chmod +x create_env_file.sh
     ```
 
-3. **Run Environment Setup Script:**
+4. **Run Environment Setup Script:**
     ```bash
     ./create_env_file.sh
     ```
 
-4. **Run Docker Compose:**
+5. **Run Docker Compose:**
     ```bash
     docker-compose up -d
     ```
 
 Now, the web application should be up and running.
 
+Try it now here: 
+On macOS/Linux:
+```bash
+open http://127.0.0.1:80
+```
 ---
 
 Feel free to explore, contribute, and enjoy the Guess-Word web application! If you have any questions or issues, please check the [Issues](https://github.com/KakoytoBarista/Guess-Word/issues) section.
